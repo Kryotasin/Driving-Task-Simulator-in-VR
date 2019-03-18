@@ -46,7 +46,7 @@ public class LVController : MonoBehaviour
 
         float time = Time.time;
         newLVPosition = new Vector3(LVposition.x, LVposition.y, LVposition.z + Mathf.PingPong(velocity * Time.time, eccentricity));
-        Debug.Log(rend);
+        //Debug.Log(rend);
         LV.transform.position = newLVPosition;
 
     }
