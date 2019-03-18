@@ -17,15 +17,14 @@ public class ObjectTracker : MonoBehaviour {
     private string OutputDir;
     
     //Things you want to write out, set them in the inspector
-    public GameObject Object1;
-    public GameObject Object2;
+    public GameObject VRCamera;
+    public GameObject RightHandController;
 
     //Gives user control over when to start and stop recording, trigger this with spacebar;
     public bool startWriting;
 
     //Initialize some containers
     FileStream streams;
-    FileStream trialStreams;
     StringBuilder stringBuilder = new StringBuilder();
     String writeString;
     Byte[] writebytes;
@@ -40,8 +39,8 @@ public class ObjectTracker : MonoBehaviour {
         Directory.CreateDirectory(OutputDir);
 
         // create a file to record data
-        String trialOutput = Path.Combine(OutputDir, DateTime.Now.ToString("yyyy-MM-dd-HH-mm") + "_Results.csv");
-        trialStreams = new FileStream(trialOutput, FileMode.Create, FileAccess.Write);
+        String trialOutput = Path.Combine(OutputDir, DateTime.Now.ToString("yyyy-MM-dd-HH-mm") + "_Results.txt");
+        streams = new FileStream(trialOutput, FileMode.Create, FileAccess.Write);
 
 
         //Call the function below to write the column names
@@ -71,7 +70,7 @@ public class ObjectTracker : MonoBehaviour {
 
         writeString = stringBuilder.ToString();
         writebytes = Encoding.ASCII.GetBytes(writeString);
-        trialStreams.Write(writebytes, 0, writebytes.Length);
+        streams.Write(writebytes, 0, writebytes.Length);
 
     }
 
@@ -81,17 +80,17 @@ public class ObjectTracker : MonoBehaviour {
         stringBuilder.Append(
                     Time.frameCount + "\t"
                     + Time.time * 1000 + "\t"
-                    + Object1.transform.position.x.ToString() + "\t"
-                    + Object1.transform.position.y.ToString() + "\t"
-                    + Object1.transform.position.z.ToString() + "\t"
-                    + Object2.transform.position.x.ToString() + "\t"
-                    + Object2.transform.position.y.ToString() + "\t"
-                    + Object2.transform.position.z.ToString() + "\t" +
+                    + VRCamera.transform.position.x.ToString() + "\t"
+                    + VRCamera.transform.position.y.ToString() + "\t"
+                    + VRCamera.transform.position.z.ToString() + "\t"
+                    + RightHandController.transform.position.x.ToString() + "\t"
+                    + RightHandController.transform.position.y.ToString() + "\t"
+                    + RightHandController.transform.position.z.ToString() + "\t" +
                     Environment.NewLine
                 );
         writeString = stringBuilder.ToString();
         writebytes = Encoding.ASCII.GetBytes(writeString);
-        trialStreams.Write(writebytes, 0, writebytes.Length);
+        streams.Write(writebytes, 0, writebytes.Length);
     }
 
     public void Update()
@@ -109,7 +108,14 @@ public class ObjectTracker : MonoBehaviour {
                 Debug.Log("Stop writing");
             }
         }
-        if (startWriting) ;
+
+        if(Input.GetKeyDown(KeyCode.X)){
+            // Close the file 
+            streams.Dispose();
+            Debug.Log("Close File");
+        }
+        
+        if (startWriting) 
         {
             WriteFile();
         }
