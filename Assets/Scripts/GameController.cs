@@ -4,18 +4,32 @@ public class GameController : MonoBehaviour
 {
     public GameObject target;
     public Transform[] spawnPoints;
+    public bool targetActive = false;
 
     void Start()
     {
-        InvokeRepeating("InstantiateTarget", 2.0f, 0.3f);
+        if (!targetActive)
+        {
+            InstantiateTarget();
+        }
     }
 
     void InstantiateTarget()
     {
-        
-        int spawnPointIndex = Random.Range (0, spawnPoints.Length);
 
-        Instantiate (target, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
-    
+        int spawnPointIndex = Random.Range(0, spawnPoints.Length);
+
+        Instantiate(target, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
+
+        targetActive = true;
+    }
+
+    void OnCollisionEnter (Collision col)
+    {
+        if(col.gameObject.name == "Player")
+        {
+            Destroy(this);
+            Debug.Log("Collision");
+        }
     }
 }
