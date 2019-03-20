@@ -1,17 +1,13 @@
-﻿using UnityEngine;
+﻿using System.Collections;
 using System.Collections.Generic;
-public class GameController : MonoBehaviour
+using UnityEngine;
+
+public class TargetSpawner : MonoBehaviour
 {
-    public GameObject target;
+     public GameObject target;
     public Transform[] spawnPoints;
     public bool targetActive = false;
-
-    void Start()
-    {
-
-    }
-
-    void Update()
+  void Update()
     {
         if (!targetActive)
         {
@@ -28,14 +24,7 @@ public class GameController : MonoBehaviour
         Instantiate(target, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
 
         targetActive = true;
-    }
 
-    void OnCollisionEnter(Collision col)
-    {
-        if (col.gameObject.name == "Player")
-        {
-            Destroy(target);
-            Debug.Log("Collision");
-        }
+        Debug.Log("Object Instantiated");
     }
 }
