@@ -8,11 +8,17 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
+
+    }
+
+    void Update()
+    {
         if (!targetActive)
         {
             InstantiateTarget();
         }
     }
+
 
     void InstantiateTarget()
     {
@@ -24,11 +30,11 @@ public class GameController : MonoBehaviour
         targetActive = true;
     }
 
-    void OnCollisionEnter (Collision col)
+    void OnCollisionEnter(Collision col)
     {
-        if(col.gameObject.name == "Player")
+        if (col.gameObject.name == "Player")
         {
-            Destroy(this);
+            Destroy(target);
             Debug.Log("Collision");
         }
     }
