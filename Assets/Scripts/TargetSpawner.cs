@@ -10,7 +10,13 @@ public class TargetSpawner : MonoBehaviour
 
     public GameObject HMD;
 
-public int spawnRange;
+    public int spawnRange;
+    public bool inStartArea = false;
+
+    void Awake()
+    {
+
+    }
     void Start()
     {
 
@@ -18,8 +24,8 @@ public int spawnRange;
 
     void Update()
     {
-        if (!targetActive)
-        { 
+        if (!targetActive && inStartArea)
+        {
             InstantiateTarget();
         }
     }
@@ -32,12 +38,11 @@ public int spawnRange;
 
         //Instantiate(target, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
 
-        if(spawnPointRange != 0){
-        Instantiate(target, HMD.transform.position + new Vector3(spawnPointRange, 0, 0), HMD.transform.rotation);
+        if (spawnPointRange != 0)
+        {
+            Instantiate(target, HMD.transform.position + new Vector3(spawnPointRange, 0, 0.5f), HMD.transform.rotation);
 
-        targetActive = true;
-
-        Debug.Log("Object Instantiated");
+            targetActive = true;
         }
     }
 }
