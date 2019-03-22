@@ -13,12 +13,15 @@ public class TargetSpawner : MonoBehaviour
     public int spawnRange;
     public bool inStartArea = false;
 
-    private int numberOfTargets = 4;
+    public int targetNumber = 0;
+
+    public Vector3 spawnPosition;
 
     void Awake()
     {
 
     }
+
     void Start()
     {
 
@@ -36,15 +39,17 @@ public class TargetSpawner : MonoBehaviour
     void InstantiateTarget()
     {
 
-        int spawnPointRange = Random.Range(-1, 3);
+        int spawnPointRange = Random.Range(-1, 2);
 
         //Instantiate(target, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
 
         if (spawnPointRange != 0)
         {
-            Instantiate(target, HMD.transform.position + new Vector3(spawnPointRange, 0, 0.5f), HMD.transform.rotation);
+            spawnPosition = HMD.transform.position + new Vector3(spawnPointRange, 0, 0.5f);
+            Instantiate(target, spawnPosition, HMD.transform.rotation);
 
             targetActive = true;
         }
+        targetNumber = targetNumber + 1;
     }
 }
