@@ -15,8 +15,6 @@ public class ControllerCollisionDetector : MonoBehaviour
     void Awake()
     {
         targetSpawnnerScript = targetSpawnController.GetComponent<TargetSpawner>();
-        initTime = Time.time;
-        Debug.Log(initTime);
         startArea.transform.position = HMD.transform.position + new Vector3(0, 0, 1.0f);
     }
 
@@ -39,9 +37,9 @@ public class ControllerCollisionDetector : MonoBehaviour
             other.gameObject.SetActive(false);
 
             endTime = Time.time;
-            Debug.Log(endTime);
+            Debug.Log("End Time: " + endTime);
 
-            Debug.Log(endTime - initTime);
+            Debug.Log("Time Taken: " + (endTime - initTime));
             targetSpawnnerScript.targetActive = false;
             targetSpawnnerScript.inStartArea = false;
 
@@ -52,6 +50,8 @@ public class ControllerCollisionDetector : MonoBehaviour
         {
             other.gameObject.SetActive(false);
             targetSpawnnerScript.inStartArea = true;
+            initTime = Time.time;
+            Debug.Log("Init Time: " + initTime);
         }
     }
 }

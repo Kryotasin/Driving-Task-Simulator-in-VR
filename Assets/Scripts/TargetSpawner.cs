@@ -13,6 +13,8 @@ public class TargetSpawner : MonoBehaviour
     public int spawnRange;
     public bool inStartArea = false;
 
+    private int numberOfTargets = 4;
+
     void Awake()
     {
 
@@ -34,7 +36,7 @@ public class TargetSpawner : MonoBehaviour
     void InstantiateTarget()
     {
 
-        int spawnPointRange = Random.Range(-2, 2);
+        int spawnPointRange = Random.Range(-1, 3);
 
         //Instantiate(target, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
 
