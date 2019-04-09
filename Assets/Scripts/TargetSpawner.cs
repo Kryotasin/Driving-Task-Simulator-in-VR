@@ -46,6 +46,9 @@ public class TargetSpawner : MonoBehaviour
         if (spawnPointRange != 0) // Excluding spawns for 0 offset
         {
             spawnPosition = HMD.transform.position + new Vector3(spawnPointRange, 0, 0.5f); // Set the position of the target
+
+            Debug.Log(spawnPosition);
+
             Instantiate(target, spawnPosition, HMD.transform.rotation); // Instantiate the target
 
             targetActive = true; // Set the flag to indicate the target is in scene

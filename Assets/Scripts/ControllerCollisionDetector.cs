@@ -21,7 +21,8 @@ public class ControllerCollisionDetector : MonoBehaviour
     void Awake()
     {
         targetSpawnnerScript = targetSpawnController.GetComponent<TargetSpawner>();
-        startArea.transform.position = HMD.transform.position + new Vector3(0, 0, 1.0f);
+        startArea.transform.position = new Vector3(7.0f, 10.0f, -6.5f);
+        // Debug.Log(startArea.transform.position);
     }
 
     void Start()
@@ -47,7 +48,7 @@ public class ControllerCollisionDetector : MonoBehaviour
 
         if (other.gameObject.CompareTag("Target"))
         {
-            // Debug.Log("Collision");
+             Debug.Log("Collision");
 
             // Set the Target as inactive
             other.gameObject.SetActive(false);
@@ -69,6 +70,7 @@ public class ControllerCollisionDetector : MonoBehaviour
         // Enter this is the Object collided with is the start area
         if (other.gameObject.CompareTag("StartArea"))
         {
+            Debug.Log("Collision Start Area");
             other.gameObject.SetActive(false); // Deactivate the start area
             targetSpawnnerScript.inStartArea = true; // Set the flag to indicate the controllre is now in the start area
             initTime = Time.time; // set the start time

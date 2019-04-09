@@ -1,0 +1,16 @@
+{
+  "source": "Unity",
+  "applications": [
+    {
+      "app_key": "application.generated.unity.drivingtasksimulatorinvr.exe",
+      "launch_type": "url",
+      "url": "steam://launch/",
+      "action_manifest_path": "D:\\IVE_Spring19\\Kshitij Sinha\\Driving-Task-Simulator-in-VR\\actions.json",
+      "strings": {
+        "en_us": {
+          "name": "Driving-Task-Simulator-in-VR [Testing]"
+        }
+      }
+    }
+  ]
+}
