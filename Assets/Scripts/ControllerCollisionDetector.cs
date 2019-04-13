@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR;
+using HTC.UnityPlugin.Vive;
 
 public class ControllerCollisionDetector : MonoBehaviour
 {
@@ -34,7 +35,11 @@ public class ControllerCollisionDetector : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        // get trigger
+        if (ViveInput.GetPressDown(HandRole.RightHand, ControllerButton.Trigger))
+        {
+            Debug.Log("Press");
+        }
     }
 
     /*
