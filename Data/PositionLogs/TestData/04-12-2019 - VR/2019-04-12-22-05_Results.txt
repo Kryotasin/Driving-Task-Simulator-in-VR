@@ -1,0 +1,4 @@
+4/12/2019 10:05:57 PM	The file contains frame by frame data of location for 3 tracked objects 
+The coordinate system is in Unity world coordinates.
+-------------------------------------------------
+FrameNumber	Timestamp	Target Number	TargetX	TargetY	TargetZ	HeadX	HeadY	HeadZ	HandX	HandY	HandZ	
