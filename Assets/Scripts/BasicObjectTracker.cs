@@ -22,6 +22,8 @@ public class BasicObjectTracker : MonoBehaviour {
 
     public GameObject targetSpawnController;
 
+    public GameObject gazeMarker;
+
     private TargetSpawner targetSpawnerScript;
 
     //Gives user control over when to start and stop recording, trigger this with spacebar;
@@ -71,7 +73,7 @@ public class BasicObjectTracker : MonoBehaviour {
             );
         //add column names
         stringBuilder.Append(
-            "FrameNumber\t" + "Timestamp\t" + "Target Number\t" + "TargetX\t" + "TargetY\t" + "TargetZ\t" + "HeadX\t" + "HeadY\t" + "HeadZ\t" + "HandX\t" + "HandY\t" + "HandZ\t" + Environment.NewLine
+            "FrameNumber\t" + "Timestamp\t" + "Target Number\t" + "TargetX\t" + "TargetY\t" + "TargetZ\t" + "HeadX\t" + "HeadY\t" + "HeadZ\t" + "HandX\t" + "HandY\t" + "HandZ\t" + "GazeX\t" + "GazeY\t" + "GazeZ\t" + Environment.NewLine
                         );
 
 
@@ -96,10 +98,15 @@ public class BasicObjectTracker : MonoBehaviour {
                     + VRCamera.transform.position.x.ToString() + "\t"
                     + VRCamera.transform.position.y.ToString() + "\t"
                     + VRCamera.transform.position.z.ToString() + "\t"
+                    
                     + RightHandController.transform.position.x.ToString() + "\t"
                     + RightHandController.transform.position.y.ToString() + "\t"
-                    + RightHandController.transform.position.z.ToString() + "\t" +
-                    Environment.NewLine
+                    + RightHandController.transform.position.z.ToString() + "\t" 
+
+                    + gazeMarker.transform.position.x.ToString() + "\t"
+                    + gazeMarker.transform.position.y.ToString() + "\t"
+                    + gazeMarker.transform.position.z.ToString() + "\t"
+                    + Environment.NewLine
                 );
         writeString = stringBuilder.ToString();
         writebytes = Encoding.ASCII.GetBytes(writeString);
