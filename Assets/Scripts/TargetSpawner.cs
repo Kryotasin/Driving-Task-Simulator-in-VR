@@ -41,9 +41,9 @@ public class TargetSpawner : MonoBehaviour
         Shuffle();
         Shuffle();
         // Test print of list
-        //  foreach(GameObject k in spawnList){
-        //     Debug.Log("Initial: " + k);
-        // }
+         foreach(GameObject k in spawnList){
+            Debug.Log("Initial: " + k);
+        }
     }
 
       /*
