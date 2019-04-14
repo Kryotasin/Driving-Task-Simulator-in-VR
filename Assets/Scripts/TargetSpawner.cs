@@ -39,35 +39,36 @@ public class TargetSpawner : MonoBehaviour
         
         // Call the shuffle function 3 times to have good randomization
         Shuffle();
-        Shuffle();
-        Shuffle();
         // Test print of list
          foreach(GameObject k in spawnList){
             Debug.Log("Initial: " + k);
         }
     }
 
-      /*
+    /*
         This function shuffles the list of spawnPoints
     */
     void Shuffle(){
-        int len = spawnList.Count; // get the length of spawnlist
-        GameObject temp;
-        // Till the length of list, shuffle random index with 
-        // another random index
-        while(len > 1){
-            int source = Random.Range(0, len);
-            int destination = Random.Range(0, len);
-            if(source == destination){
-                destination = Random.Range(0, len);
-            }
+        int times = 30; // The number of times to shuffle the list
+        while(times > 0){
+            int len = spawnList.Count; // get the length of spawnlist
+            GameObject temp;
+            // Till the length of list, shuffle random index with 
+            // another random index
+            while(len > 1){
+                int source = Random.Range(0, len/2);
+                int destination = Random.Range(len/2, len);
+                if(source == destination){
+                    destination = Random.Range(len/2, len);
+                }
 
-            temp = spawnList[source];
-            spawnList[source] = spawnList[destination];
-            spawnList[destination] = temp;
-            len --;
+                temp = spawnList[source];
+                spawnList[source] = spawnList[destination];
+                spawnList[destination] = temp;
+                len --;
+            }
+            times --;
         }
-        Debug.Log("Shuffled: " + spawnList[15]);
     }
 
     void Update()
