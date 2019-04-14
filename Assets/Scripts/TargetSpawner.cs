@@ -14,6 +14,7 @@ public class TargetSpawner : MonoBehaviour
 
     private List<GameObject> spawnList = new List<GameObject>(); // List to maintain the 40 spawn points, 10 each 
 
+    private int index = 0; // index to keep track of spawnpoints in Update()
     public bool inStartArea = false; // Flag to see if the controller is in the start area
 
     public int targetNumber = 1; // Keep count of the target
@@ -71,31 +72,34 @@ public class TargetSpawner : MonoBehaviour
 
     void Update()
     {
-        if (!targetActive && inStartArea)
+        if (!targetActive && inStartArea && (index < spawnList.Count))
         {
-            InstantiateTarget();
+            InstantiateTarget(spawnList[index].transform.position);
+            index ++;
         }
     }
 
 
-    void InstantiateTarget()
+    void InstantiateTarget(Vector3 spawnPoint)
     {
 
-        int spawnPointRange = Random.Range(-1, 2); // Generate random number between the range
+        //int spawnPointRange = Random.Range(-1, 2); // Generate random number between the range
 
         //Instantiate(target, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
 
-        if (spawnPointRange != 0) // Excluding spawns for 0 offset
-        {
-            spawnPosition = HMD.transform.position + new Vector3(spawnPointRange, 0, 0.5f); // Set the position of the target
+        // if (spawnPointRange != 0) // Excluding spawns for 0 offset
+        // {
+            // spawnPosition = HMD.transform.position + new Vector3(spawnPointRange, 0, 0.5f); // Set the position of the target
 
-            Debug.Log(spawnPosition);
+            // Debug.Log(spawnPosition);
+
+            spawnPosition = spawnPoint;
 
             Instantiate(target, spawnPosition, HMD.transform.rotation); // Instantiate the target
 
             targetActive = true; // Set the flag to indicate the target is in scene
 
             targetNumber = targetNumber + 1; // Increase the target count by 1
-        }
+        // }
     }
 }
