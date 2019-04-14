@@ -10,7 +10,7 @@ public class ControllerCollisionDetector : MonoBehaviour
 
     public GameObject targetSpawnController; // GameObject that holds the TargetSpawn script
     private TargetSpawner targetSpawnnerScript; // The target spawn script
-
+    private int indexHolder;
     public GameObject HMD; // the VR Camera - center eye
     public GameObject startArea; // The start area sphere
    
@@ -27,6 +27,7 @@ public class ControllerCollisionDetector : MonoBehaviour
 
     void Start()
     {
+        indexHolder = targetSpawnnerScript.targetNumber;
     }
 
   
@@ -66,6 +67,9 @@ public class ControllerCollisionDetector : MonoBehaviour
 
             // Activate the start area
             startArea.SetActive(true);
+
+            targetSpawnnerScript.targetNumber = -1; // Increase the target count by 1
+
         }
 
         // Enter this is the Object collided with is the start area
@@ -76,6 +80,8 @@ public class ControllerCollisionDetector : MonoBehaviour
             targetSpawnnerScript.inStartArea = true; // Set the flag to indicate the controllre is now in the start area
             initTime = Time.time; // set the start time
             //Debug.Log("Init Time: " + initTime);
+            targetSpawnnerScript.targetNumber = indexHolder + 1; // Increase the target count by 1
+            indexHolder ++;
         }
     }
 }

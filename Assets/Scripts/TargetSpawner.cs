@@ -100,7 +100,7 @@ public class TargetSpawner : MonoBehaviour
 
             targetActive = true; // Set the flag to indicate the target is in scene
 
-            targetNumber = targetNumber + 1; // Increase the target count by 1
+            
         // }
     }
 }
