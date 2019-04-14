@@ -21,7 +21,7 @@ public class ControllerCollisionDetector : MonoBehaviour
     void Awake()
     {
         targetSpawnnerScript = targetSpawnController.GetComponent<TargetSpawner>();
-        startArea.transform.position = new Vector3(7.0f, 10.0f, -6.5f);
+        startArea.transform.position = new Vector3(7.0f, 10.0f, -6.2f);
         // Debug.Log(startArea.transform.position);
     }
 
