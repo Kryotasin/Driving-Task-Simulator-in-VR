@@ -13,6 +13,7 @@ public class ControllerCollisionDetector : MonoBehaviour
 
     public GameObject HMD; // the VR Camera - center eye
     public GameObject startArea; // The start area sphere
+    public GameObject[] spawnPoints;
 
     /*
         In this function we get the TargSpawn script object and set the position of the start area relative to the position of the 
