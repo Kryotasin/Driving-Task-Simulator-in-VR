@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - LV
+  - StartArea
+  - Target
+  - OneRight
+  - TwoRight
+  - OneLeft
+  - TwoLeft
   layers:
   - Default
   - TransparentFX
