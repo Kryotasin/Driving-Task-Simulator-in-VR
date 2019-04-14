@@ -11,11 +11,9 @@ public class ControllerCollisionDetector : MonoBehaviour
     public GameObject targetSpawnController; // GameObject that holds the TargetSpawn script
     private TargetSpawner targetSpawnnerScript; // The target spawn script
 
-    private List<GameObject> spawnList = new List<GameObject>(); // List to maintain the 40 spawn points, 10 each 
     public GameObject HMD; // the VR Camera - center eye
     public GameObject startArea; // The start area sphere
-    public GameObject[] spawnPoints; //The spawn points to spawn targets at
-
+   
     /*
         In this function we get the TargSpawn script object and set the position of the start area relative to the position of the 
         head/camera in the Unity scene
@@ -29,45 +27,9 @@ public class ControllerCollisionDetector : MonoBehaviour
 
     void Start()
     {
-        //  Generate the list for 10 targets at each points
-        for(int i=0; i<spawnPoints.Length; i++){
-            for(int j=0;j<10;j++){
-            spawnList.Add(spawnPoints[i]);
-            }
-        }
-        
-        // Call the shuffle function 3 times to have good randomization
-        Shuffle();
-        Shuffle();
-        Shuffle();
-        // Test print of list
-        //  foreach(GameObject k in spawnList){
-        //     Debug.Log("Initial: " + k);
-        // }
     }
 
-    /*
-        This function shuffles the list of spawnPoints
-    */
-    void Shuffle(){
-        int len = spawnList.Count; // get the length of spawnlist
-        GameObject temp;
-        // Till the length of list, shuffle random index with 
-        // another random index
-        while(len > 1){
-            int source = Random.Range(0, len);
-            int destination = Random.Range(0, len);
-            if(source == destination){
-                destination = Random.Range(0, len);
-            }
-
-            temp = spawnList[source];
-            spawnList[source] = spawnList[destination];
-            spawnList[destination] = temp;
-            len --;
-        }
-        Debug.Log("Shuffled: " + spawnList[15]);
-    }
+  
 
     // Update is called once per frame
     void Update()

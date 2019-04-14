@@ -11,11 +11,16 @@ public class TargetSpawner : MonoBehaviour
     public GameObject HMD; // VR Camera Object - center
 
     public int spawnRange; // Range for target to spawn in - **unused**
+
+    private List<GameObject> spawnList = new List<GameObject>(); // List to maintain the 40 spawn points, 10 each 
+
     public bool inStartArea = false; // Flag to see if the controller is in the start area
 
     public int targetNumber = 1; // Keep count of the target
 
     public Vector3 spawnPosition; // Position of the spawned target
+    public GameObject[] spawnPoints; //The spawn points to spawn targets at
+
 
     void Awake()
     {
@@ -24,7 +29,44 @@ public class TargetSpawner : MonoBehaviour
 
     void Start()
     {
+     //  Generate the list for 10 targets at each points
+        for(int i=0; i<spawnPoints.Length; i++){
+            for(int j=0;j<10;j++){
+            spawnList.Add(spawnPoints[i]);
+            }
+        }
+        
+        // Call the shuffle function 3 times to have good randomization
+        Shuffle();
+        Shuffle();
+        Shuffle();
+        // Test print of list
+        //  foreach(GameObject k in spawnList){
+        //     Debug.Log("Initial: " + k);
+        // }
+    }
 
+      /*
+        This function shuffles the list of spawnPoints
+    */
+    void Shuffle(){
+        int len = spawnList.Count; // get the length of spawnlist
+        GameObject temp;
+        // Till the length of list, shuffle random index with 
+        // another random index
+        while(len > 1){
+            int source = Random.Range(0, len);
+            int destination = Random.Range(0, len);
+            if(source == destination){
+                destination = Random.Range(0, len);
+            }
+
+            temp = spawnList[source];
+            spawnList[source] = spawnList[destination];
+            spawnList[destination] = temp;
+            len --;
+        }
+        Debug.Log("Shuffled: " + spawnList[15]);
     }
 
     void Update()
