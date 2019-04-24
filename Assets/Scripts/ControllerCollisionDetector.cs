@@ -38,6 +38,13 @@ public class ControllerCollisionDetector : MonoBehaviour
 
     }
 
+     void OnCollisionEnter(Collision collision)
+    {
+      if (collision.gameObject.CompareTag("RayCastHitMarker"))
+      {
+          Physics.IgnoreCollision(collision.gameObject.GetComponent<Collider>(), GetComponent<Collider>());
+      }
+    }
     /*
         When the controller collides with any object
         Possible Objects:

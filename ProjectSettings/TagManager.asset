@@ -11,6 +11,7 @@ TagManager:
   - TwoRight
   - OneLeft
   - TwoLeft
+  - RayCastHitMarker
   layers:
   - Default
   - TransparentFX
