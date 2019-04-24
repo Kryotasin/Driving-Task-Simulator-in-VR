@@ -30,8 +30,6 @@ public class ControllerCollisionDetector : MonoBehaviour
         indexHolder = targetSpawnnerScript.targetNumber;
     }
 
-  
-
     // Update is called once per frame
     void Update()
     {
@@ -40,10 +38,7 @@ public class ControllerCollisionDetector : MonoBehaviour
 
      void OnCollisionEnter(Collision collision)
     {
-      if (collision.gameObject.CompareTag("RayCastHitMarker"))
-      {
-          Physics.IgnoreCollision(collision.gameObject.GetComponent<Collider>(), GetComponent<Collider>());
-      }
+    
     }
     /*
         When the controller collides with any object
@@ -53,6 +48,12 @@ public class ControllerCollisionDetector : MonoBehaviour
      */
     private void OnTriggerEnter(Collider other)
     {
+
+          if (other.gameObject.CompareTag("RayCastHitMarker"))
+        {
+            Physics.IgnoreCollision(other.gameObject.GetComponent<Collider>(), GetComponent<Collider>());
+            Debug.Log("Ignoreing part");
+        }
         //  Check if the object collided with is the Target
 
         if (other.gameObject.CompareTag("Target"))
