@@ -157,7 +157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1068839019050527127, guid: cf4553f6df1c360438ab8fa38af39bda, type: 3}
   targetActive: 0
-  HMD: {fileID: 1736684540}
+  HMD: {fileID: 886205176}
   spawnRange: 0
   inStartArea: 0
   targetNumber: 0
@@ -1705,6 +1705,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1876495788}
+    - target: {fileID: 114000010110554832, guid: 4d293c8e162f3874b982baadd71153d2,
+        type: 3}
+      propertyPath: broadcastDeviceChanges
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d293c8e162f3874b982baadd71153d2, type: 3}
 --- !u!4 &1781172708 stripped
@@ -1937,8 +1942,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FolderName: D:\IVE_Spring19\Kshitij Sinha\Driving-Task-Simulator-in-VR\Data\PositionLogs\TestData
   FileName: ' - VR'
-  VRCamera: {fileID: 1736684540}
-  RightHandController: {fileID: 507553545}
+  VRCamera: {fileID: 886205176}
+  RightHandController: {fileID: 886205172}
   targetSpawnController: {fileID: 35585149}
   gazeMarker: {fileID: 1030054507}
   startWriting: 0
