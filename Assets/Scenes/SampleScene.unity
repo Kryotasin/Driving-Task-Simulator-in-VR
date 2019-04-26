@@ -838,7 +838,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 630618074}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7, y: 10, z: -6}
+  m_LocalPosition: {x: 7, y: 10, z: -8}
   m_LocalScale: {x: 2, y: 1, z: 0.01}
   m_Children: []
   m_Father: {fileID: 978195027}
@@ -1178,7 +1178,7 @@ Transform:
   m_Children:
   - {fileID: 630618075}
   m_Father: {fileID: 1739352828}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1030054507 stripped
 GameObject:
@@ -1642,8 +1642,8 @@ Transform:
   - {fileID: 1514727004}
   - {fileID: 562891215}
   - {fileID: 392452902}
-  - {fileID: 1951441354}
   - {fileID: 978195027}
+  - {fileID: 1951441354}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
