@@ -12,7 +12,7 @@ public class ControllerCollisionDetector : MonoBehaviour
     private TargetSpawner targetSpawnnerScript; // The target spawn script
     private int indexHolder;
     public GameObject HMD; // the VR Camera - center eye
-    public GameObject startArea; // The start area sphere
+
    
     /*
         In this function we get the TargSpawn script object and set the position of the start area relative to the position of the 
@@ -21,7 +21,7 @@ public class ControllerCollisionDetector : MonoBehaviour
     void Awake()
     {
         targetSpawnnerScript = targetSpawnController.GetComponent<TargetSpawner>();
-        startArea.transform.position = new Vector3(7.0f, 10.0f, -6.2f);
+        // startArea.transform.position = new Vector3(7.0f, 10.0f, -6.2f);
         // Debug.Log(startArea.transform.position);
     }
 
@@ -74,7 +74,7 @@ public class ControllerCollisionDetector : MonoBehaviour
             targetSpawnnerScript.inStartArea = false;
 
             // Activate the start area
-            startArea.SetActive(true);
+            // startArea.SetActive(true);
 
             targetSpawnnerScript.targetNumber = -1; // Increase the target count by 1
 
