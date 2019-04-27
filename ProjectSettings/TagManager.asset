@@ -12,6 +12,7 @@ TagManager:
   - OneLeft
   - TwoLeft
   - RayCastHitMarker
+  - TargetForGPS
   layers:
   - Default
   - TransparentFX
