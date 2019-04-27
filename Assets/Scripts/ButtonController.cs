@@ -19,6 +19,8 @@ public class ButtonController : MonoBehaviour
 
     private Vector3 buttonOriginPosition;
 
+    public GameObject NotificationBox; //Custom
+
     private HashSet<ColliderButtonEventData> pressingEvents = new HashSet<ColliderButtonEventData>();
 
     public ColliderButtonEventData.InputButton activeButton
@@ -90,6 +92,7 @@ public class ButtonController : MonoBehaviour
         if (pressingEvents.Remove(eventData) && pressingEvents.Count == 0)
         {
             buttonObject.position = buttonOriginPosition;
+            NotificationBox.SetActive(false);
         }
     }
 }
