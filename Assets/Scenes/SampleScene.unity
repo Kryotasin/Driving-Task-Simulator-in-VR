@@ -1378,12 +1378,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 630618074}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7, y: 10.5, z: -9}
+  m_LocalPosition: {x: 7, y: 10.5, z: -8.5}
   m_LocalScale: {x: 1, y: 1, z: 0.01}
   m_Children:
   - {fileID: 245650493}
-  - {fileID: 1265772525}
   - {fileID: 1461334839}
+  - {fileID: 1265772525}
+  - {fileID: 1347590055}
   m_Father: {fileID: 978195027}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1953,6 +1954,7 @@ GameObject:
   - component: {fileID: 1265772528}
   - component: {fileID: 1265772527}
   - component: {fileID: 1265772526}
+  - component: {fileID: 1265772529}
   m_Layer: 0
   m_Name: NoObject
   m_TagString: Untagged
@@ -1968,12 +1970,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1265772524}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.28, y: -0.263, z: -0.01}
-  m_LocalScale: {x: 0.3, y: 0.15, z: 1}
+  m_LocalPosition: {x: -0.28, y: -0.263, z: -2.5}
+  m_LocalScale: {x: 0.3, y: 0.15, z: 3}
   m_Children:
   - {fileID: 502889508}
   m_Father: {fileID: 630618075}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1265772526
 BoxCollider:
@@ -2033,6 +2035,53 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1265772524}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1265772529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1265772524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03990edfc3b67c34bbf7a2b9fd3bc38c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectTargets:
+  - {fileID: 1347590055}
+  buttonObject: {fileID: 1265772525}
+  buttonDownDisplacement: {x: 0, y: 0, z: 0.01}
+  m_activeButton: 0
+--- !u!1 &1347590054
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1347590055}
+  m_Layer: 0
+  m_Name: DummyObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1347590055
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1347590054}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 630618075}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1461334838
 GameObject:
   m_ObjectHideFlags: 0
@@ -2045,6 +2094,7 @@ GameObject:
   - component: {fileID: 1461334842}
   - component: {fileID: 1461334841}
   - component: {fileID: 1461334840}
+  - component: {fileID: 1461334843}
   m_Layer: 0
   m_Name: YesObject
   m_TagString: Untagged
@@ -2060,12 +2110,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1461334838}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.275, y: -0.2630005, z: -0.01001358}
-  m_LocalScale: {x: 0.29999998, y: 0.14999999, z: 1}
+  m_LocalPosition: {x: 0.275, y: -0.2630005, z: -2.4999619}
+  m_LocalScale: {x: 0.29999998, y: 0.14999999, z: 3}
   m_Children:
   - {fileID: 1653716636}
   m_Father: {fileID: 630618075}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1461334840
 BoxCollider:
@@ -2125,6 +2175,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1461334838}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1461334843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1461334838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03990edfc3b67c34bbf7a2b9fd3bc38c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectTargets:
+  - {fileID: 1347590055}
+  buttonObject: {fileID: 1461334839}
+  buttonDownDisplacement: {x: 0, y: 0, z: 0.01}
+  m_activeButton: 0
 --- !u!1 &1514727003
 GameObject:
   m_ObjectHideFlags: 0
