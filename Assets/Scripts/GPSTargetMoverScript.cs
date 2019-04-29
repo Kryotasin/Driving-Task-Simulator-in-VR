@@ -10,8 +10,7 @@ public class GPSTargetMoverScript : MonoBehaviour
     private GameObject GPSTarget; // LV object
     private float increaseZPosition; // Range of increase in distance of LV from player
     private int probLV; // Probability to randomize LV approach - **unused**
-    public float smoothTime = 0.3F;
-    public float velocity = 1.0f;
+    public float velocity = 0.0f;
     public float eccentricity = 5.0f; // length from 0 to endpoint.
     
     void Awake()
@@ -29,18 +28,13 @@ public class GPSTargetMoverScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+         GPSTarget.transform.position = new Vector3(Targetposition.x + (velocity * Mathf.PingPong(velocity * Time.time, eccentricity)) ,Targetposition.y, Targetposition.z);
     }
 
     void moveItem(){
         // GPSTarget.transform.position = newTargetPosition; // Render LV at new position
         // newTargetPosition = new Vector3(Targetposition.x + Mathf.PingPong(velocity * Time.time, eccentricity), Targetposition.y, Targetposition.z); // Oscillate LV as a function of time
-        GPSTarget.transform.position = new Vector3(Targetposition.x + (velocity * Mathf.PingPong(velocity * Time.time, eccentricity)) ,Targetposition.y, Targetposition.z);
-    }
-
-     void FixedUpdate(){
-        newTargetPosition = new Vector3(Targetposition.x + Mathf.PingPong(velocity * Time.time, eccentricity), Targetposition.y, Targetposition.z); // Oscillate LV as a function of time
-    }
+        }
 
     void mover(){
          if(Random.value > 0.5){
