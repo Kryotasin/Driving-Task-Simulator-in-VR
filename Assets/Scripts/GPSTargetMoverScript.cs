@@ -13,13 +13,11 @@ public class GPSTargetMoverScript : MonoBehaviour
     public float smoothTime = 0.3F;
     public float velocity = 1.0f;
     public float eccentricity = 5.0f; // length from 0 to endpoint.
-
     private Renderer rend;
     void Awake()
     {
         GPSTarget = GameObject.FindGameObjectWithTag("TargetForGPS"); // Get LV object
         Targetposition = GPSTarget.transform.position; // Get LV position
-
     }
 
     void Start()
@@ -41,14 +39,17 @@ public class GPSTargetMoverScript : MonoBehaviour
         /*
             Generate a random number between 1 and 5 giving.
          */
-        probLV = Random.Range(0, 3); // Unused
+        probLV = Random.Range(0, 30); // Unused
 
 
         float time = Time.time;
-        newTargetPosition = new Vector3(Targetposition.x + Mathf.PingPong(velocity * Time.time, eccentricity), Targetposition.y, Targetposition.z); // Oscillate LV as a function of time
-        //Debug.Log(rend);
-        GPSTarget.transform.position = newTargetPosition; // Render LV at new position
-
+         // Debug.Log(probLV);
+        if(probLV > 20){
+            GPSTarget.transform.position = newTargetPosition; // Render LV at new position
+            // eccentricity = Random.Range(0,6);
+            // Debug.Log(eccentricity); 
+            // newTargetPosition = new Vector3(Targetposition.x + Mathf.PingPong(velocity * Time.time, eccentricity), Targetposition.y, Targetposition.z); // Oscillate LV as a function of time
+       }
     }
 
     // Unused
