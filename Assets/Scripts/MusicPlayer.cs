@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MusicPLayer : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public AudioClip clips;
     void Start()
     {
         
