@@ -13,7 +13,7 @@ public class GPSTargetMoverScript : MonoBehaviour
     public float smoothTime = 0.3F;
     public float velocity = 1.0f;
     public float eccentricity = 5.0f; // length from 0 to endpoint.
-    private Renderer rend;
+    
     void Awake()
     {
         GPSTarget = GameObject.FindGameObjectWithTag("TargetForGPS"); // Get LV object
@@ -22,40 +22,34 @@ public class GPSTargetMoverScript : MonoBehaviour
 
     void Start()
     {
-        rend = GPSTarget.GetComponent<Renderer>();
+        // rigidbody = GPSTarget.GetComponent<Rigidbody>();
+        InvokeRepeating("mover", 2f, 3f);
     }
 
     // Update is called once per frame
     void Update()
     {
+       
+    }
 
-        if (Input.GetKeyDown("s"))
-        {
-            StartCoroutine("Brake"); // May not work
+    void moveItem(){
+        // GPSTarget.transform.position = newTargetPosition; // Render LV at new position
+        // newTargetPosition = new Vector3(Targetposition.x + Mathf.PingPong(velocity * Time.time, eccentricity), Targetposition.y, Targetposition.z); // Oscillate LV as a function of time
+        GPSTarget.transform.position = new Vector3(Targetposition.x + (velocity * Mathf.PingPong(velocity * Time.time, eccentricity)) ,Targetposition.y, Targetposition.z);
+    }
+
+     void FixedUpdate(){
+        newTargetPosition = new Vector3(Targetposition.x + Mathf.PingPong(velocity * Time.time, eccentricity), Targetposition.y, Targetposition.z); // Oscillate LV as a function of time
+    }
+
+    void mover(){
+         if(Random.value > 0.5){
+            velocity = 1.0f;
+        }else{
+            velocity = -1.0f;
         }
-        //Here will be the check to see if 200 objects have ben populated. If yes,
-        // Then the eccentricity will change aand so on. - Future
-
-        /*
-            Generate a random number between 1 and 5 giving.
-         */
-        probLV = Random.Range(0, 30); // Unused
-
-
-        float time = Time.time;
-         // Debug.Log(probLV);
-        if(probLV > 20){
-            GPSTarget.transform.position = newTargetPosition; // Render LV at new position
-            // eccentricity = Random.Range(0,6);
-            // Debug.Log(eccentricity); 
-            // newTargetPosition = new Vector3(Targetposition.x + Mathf.PingPong(velocity * Time.time, eccentricity), Targetposition.y, Targetposition.z); // Oscillate LV as a function of time
-       }
+        Debug.Log(velocity);
+        moveItem();
     }
-
-    // Unused
-    IEnumerator Brake()
-    {
-        GPSTarget.GetComponent<Renderer>().material.color = Color.red;
-        yield return new WaitForSeconds(.1f);
-    }
+   
 }
