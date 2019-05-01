@@ -9,52 +9,61 @@ public class LVController : MonoBehaviour
     private Vector3 LVposition, newLVPosition; // Positions between which the Lead Vehicle oscillates
     private GameObject LV; // LV object
     private float increaseZPosition; // Range of increase in distance of LV from player
-    private int probLV; // Probability to randomize LV approach - **unused**
+    private float probLV; // Probability to randomize LV approach - **unused**
     public float smoothTime = 0.3F;
     private float velocity = 1.0f;
     public float eccentricity = 1.0f; // length from 0 to endpoint.
 
+
+    public bool activateLV = false;
+    public float minimum = -10.0F;
+    public float maximum =  37.0F;
+
+     // starting value for the Lerp
+    static float t = 0.0f;
     private Renderer rend;
     void Awake()
     {
         LV = GameObject.FindGameObjectWithTag("LV"); // Get LV object
-        LVposition = LV.transform.position; // Get LV position
-
     }
 
     void Start()
     {
         rend = LV.GetComponent<Renderer>();
+        Invoke("boolChanger", 10f);
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void FixedUpdate()
+    { 
 
-        if (Input.GetKeyDown("s"))
-        {
-            StartCoroutine("Brake"); // May not work
+            // animate the position of the game object...
+            LV.transform.position = new Vector3(-3, 0, 35 + Mathf.Lerp(minimum, maximum, t));
+
+            // .. and increase the t interpolater
+            if(activateLV){
+                t += 3.0f * Time.deltaTime;
+            }
+            else{
+                t += 0.1f * Time.deltaTime;
+            }
+            
+
+            // now check if the interpolator has reached 1.0
+            // and swap maximum and minimum so game object moves
+            // in the opposite direction.
+            if (t > 1.0f)
+            {
+                float temp = maximum;
+                maximum = minimum;
+                minimum = temp;
+                t = 0.0f;
+            }
         }
-        //Here will be the check to see if 200 objects have ben populated. If yes,
-        // Then the eccentricity will change aand so on. - Future
-
-        /*
-            Generate a random number between 1 and 5 giving.
-         */
-        probLV = Random.Range(0, 3); // Unused
 
 
-        float time = Time.time;
-        newLVPosition = new Vector3(LVposition.x, LVposition.y, LVposition.z + Mathf.PingPong(velocity * Time.time, eccentricity)); // Oscillate LV as a function of time
-        //Debug.Log(rend);
-        LV.transform.position = newLVPosition; // Render LV at new position
+        void boolChanger(){
+            activateLV = !activateLV;
+        }
+ }
 
-    }
-
-    // Unused
-    IEnumerator Brake()
-    {
-        LV.GetComponent<Renderer>().material.color = Color.red;
-        yield return new WaitForSeconds(.1f);
-    }
-}

@@ -483,6 +483,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smoothTime: 0.3
   eccentricity: 1
+  activateLV: 0
+  minimum: -25
+  maximum: 25
 --- !u!1001 &122320802
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3873,6 +3876,7 @@ MonoBehaviour:
   buttonDownDisplacement: {x: 0, y: 0, z: 0}
   m_activeButton: 0
   hornObject: {fileID: 512356568}
+  LV: {fileID: 1951441355}
 --- !u!1 &714617713
 GameObject:
   m_ObjectHideFlags: 0
@@ -5269,8 +5273,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 940902439}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.01, z: 30.5}
-  m_LocalScale: {x: 3.5, y: 0.01, z: 55}
+  m_LocalPosition: {x: 0, y: -0.45, z: 23.56}
+  m_LocalScale: {x: 3.5, y: 0.001, z: 40}
   m_Children: []
   m_Father: {fileID: 2041324137}
   m_RootOrder: 0
@@ -8731,7 +8735,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4381891831559734, guid: 37ec82ab8eba1384baadcaa1d88b7f72, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 50
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 4381891831559734, guid: 37ec82ab8eba1384baadcaa1d88b7f72, type: 3}
       propertyPath: m_LocalRotation.x
@@ -8940,6 +8944,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smoothTime: 0.3
   eccentricity: 1
+  activateLV: 0
+  minimum: -25
+  maximum: 25
 --- !u!1 &2000315302
 GameObject:
   m_ObjectHideFlags: 0
@@ -9160,7 +9167,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2041324136}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.01, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 940902440}
