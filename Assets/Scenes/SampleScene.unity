@@ -483,6 +483,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smoothTime: 0.3
   eccentricity: 1
+  laneIndicator: {fileID: 0}
   activateLV: 0
   minimum: -25
   maximum: 25
@@ -8944,6 +8945,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smoothTime: 0.3
   eccentricity: 1
+  laneIndicator: {fileID: 940902439}
   activateLV: 0
   minimum: -25
   maximum: 25

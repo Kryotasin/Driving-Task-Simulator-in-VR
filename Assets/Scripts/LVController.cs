@@ -15,6 +15,7 @@ public class LVController : MonoBehaviour
     public float eccentricity = 1.0f; // length from 0 to endpoint.
 
 
+    public GameObject laneIndicator;
     public bool activateLV = false;
     public float minimum = -10.0F;
     public float maximum =  37.0F;
