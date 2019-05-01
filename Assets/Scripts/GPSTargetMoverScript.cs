@@ -42,7 +42,7 @@ public class GPSTargetMoverScript : MonoBehaviour
         }else{
             velocity = -1.0f;
         }
-        Debug.Log(velocity);
+        // Debug.Log(velocity);
         moveItem();
     }
    

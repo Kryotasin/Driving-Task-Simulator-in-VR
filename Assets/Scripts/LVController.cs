@@ -15,6 +15,8 @@ public class LVController : MonoBehaviour
     public float eccentricity = 1.0f; // length from 0 to endpoint.
 
 
+    public Material redLaneIndicator;
+    public Material normalLaneIndicator;
     public GameObject laneIndicator;
     public bool activateLV = false;
     public float minimum = -10.0F;
@@ -43,10 +45,12 @@ public class LVController : MonoBehaviour
 
             // .. and increase the t interpolater
             if(activateLV){
-                t += 3.0f * Time.deltaTime;
+                t += 2.0f * Time.deltaTime;
+                laneIndicator.GetComponent<MeshRenderer>().material = redLaneIndicator;
             }
             else{
                 t += 0.1f * Time.deltaTime;
+                laneIndicator.GetComponent<MeshRenderer>().material = normalLaneIndicator;
             }
             
 

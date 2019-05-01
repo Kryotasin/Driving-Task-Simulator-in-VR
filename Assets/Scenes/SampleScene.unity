@@ -483,6 +483,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smoothTime: 0.3
   eccentricity: 1
+  redLaneIndicator: {fileID: 0}
+  normalLaneIndicator: {fileID: 0}
   laneIndicator: {fileID: 0}
   activateLV: 0
   minimum: -25
@@ -3646,7 +3648,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 638593506}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.021999724, y: -0.26299953, z: -2.4999917}
+  m_LocalPosition: {x: -0.021999724, y: -0.38, z: -2.4999917}
   m_LocalScale: {x: 0.099999994, y: 0.14999999, z: 1}
   m_Children:
   - {fileID: 746263377}
@@ -5522,7 +5524,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1100313378}
   m_LocalRotation: {x: -0, y: 0.2588191, z: -0, w: 0.9659258}
-  m_LocalPosition: {x: 0.40360022, y: 0.9241, z: 0.66690063}
+  m_LocalPosition: {x: 0.40360022, y: 0.949, z: 0.66690063}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.01}
   m_Children:
   - {fileID: 1832858758}
@@ -6382,7 +6384,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1404248245}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.4150005, y: -0.26300013, z: -2.499958}
+  m_LocalPosition: {x: -0.4150005, y: -0.38, z: -2.499958}
   m_LocalScale: {x: 0.19999999, y: 0.15, z: 1}
   m_Children:
   - {fileID: 477694541}
@@ -7855,7 +7857,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1754586735}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.3610991, y: -0.26300073, z: -2.499964}
+  m_LocalPosition: {x: 0.3610991, y: -0.38, z: -2.499964}
   m_LocalScale: {x: 0.19999999, y: 0.14999999, z: 1}
   m_Children:
   - {fileID: 602181323}
@@ -8945,6 +8947,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smoothTime: 0.3
   eccentricity: 1
+  redLaneIndicator: {fileID: 2100000, guid: fc2a5163508b2d341b3571c722ee6e23, type: 2}
+  normalLaneIndicator: {fileID: 2100000, guid: 2dabd5dccbf40004180bfce44421e513, type: 2}
   laneIndicator: {fileID: 940902439}
   activateLV: 0
   minimum: -25
