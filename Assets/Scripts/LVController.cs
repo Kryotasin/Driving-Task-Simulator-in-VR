@@ -20,7 +20,7 @@ public class LVController : MonoBehaviour
     public GameObject laneIndicator;
     public bool activateLV = false;
     public float minimum = -10.0F;
-    public float maximum =  37.0F;
+    public float maximum =  10.0F;
 
      // starting value for the Lerp
     static float t = 0.0f;
@@ -33,7 +33,7 @@ public class LVController : MonoBehaviour
     void Start()
     {
         rend = LV.GetComponent<Renderer>();
-        Invoke("boolChanger", 10f);
+        InvokeRepeating("boolChanger", 5f, 7f);
     }
 
     // Update is called once per frame
@@ -68,6 +68,7 @@ public class LVController : MonoBehaviour
 
 
         void boolChanger(){
+            Debug.Log("Calling changed bool");
             activateLV = !activateLV;
         }
  }
