@@ -84,7 +84,7 @@ public class ButtonController : MonoBehaviour
         if (eventData.button == m_activeButton && pressingEvents.Add(eventData) && pressingEvents.Count == 1)
         {
             buttonObject.position = buttonOriginPosition + buttonDownDisplacement;
-        }
+   }
     }
 
     public void OnColliderEventPressExit(ColliderButtonEventData eventData)

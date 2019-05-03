@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class PauseScript : MonoBehaviour
+public class PreviousButton : MonoBehaviour
     , IColliderEventPressUpHandler
     , IColliderEventPressEnterHandler
     , IColliderEventPressExitHandler
@@ -20,18 +20,15 @@ public class PauseScript : MonoBehaviour
 
     private Vector3 buttonOriginPosition;
 
-    public GameObject carPlayer;
-
-    public AudioSource audioSource;
+    private AudioSource audioSource;
     public TextMeshPro trackName;
 
     private HashSet<ColliderButtonEventData> pressingEvents = new HashSet<ColliderButtonEventData>();
 
-    public GameObject bar1, bar2, play;
+    private PauseScript pauseScript;
 
-    public AudioClip[] clips;
+    public GameObject pauseObject;
 
-    public int indexTracker = 0;
     public ColliderButtonEventData.InputButton activeButton
     {
         get
@@ -46,13 +43,13 @@ public class PauseScript : MonoBehaviour
             GetComponentsInChildren(changers);
             for (int i = changers.Count - 1; i >= 0; --i) { changers[i].heighlightButton = value; }
             ListPool<MaterialChanger>.Release(changers);
+
+            pauseScript = pauseObject.GetComponent<PauseScript>();
         }
     }
 
     private void Start()
     {
-        
-
         resetPoses = new RigidPose[effectTargets.Length];
         for (int i = 0; i < effectTargets.Length; ++i)
         {
@@ -60,12 +57,6 @@ public class PauseScript : MonoBehaviour
         }
 
         buttonOriginPosition = buttonObject.position;
-
-        audioSource = carPlayer.GetComponent<AudioSource>();
-
-        bar1.SetActive(false);
-        bar2.SetActive(false);
-        play.SetActive(true);
     }
 #if UNITY_EDITOR
     protected virtual void OnValidate()
@@ -101,8 +92,22 @@ public class PauseScript : MonoBehaviour
         if (eventData.button == m_activeButton && pressingEvents.Add(eventData) && pressingEvents.Count == 1)
         {
             buttonObject.position = buttonOriginPosition + buttonDownDisplacement;
-            trackName.text = clips[indexTracker].name;
-         }
+            
+            if(pauseScript.indexTracker >= 2){
+                pauseScript.indexTracker = pauseScript.indexTracker - 1;
+                
+            }
+            else{
+                pauseScript.indexTracker = 3;
+            }
+
+            Debug.Log(pauseScript.indexTracker);
+
+
+            pauseScript.audioSource.clip = pauseScript.clips[pauseScript.indexTracker];
+            pauseScript.trackName.text = pauseScript.clips[pauseScript.indexTracker].name;
+            pauseScript.audioSource.Play();
+        }
     }
 
     public void OnColliderEventPressExit(ColliderButtonEventData eventData)
@@ -110,18 +115,6 @@ public class PauseScript : MonoBehaviour
         if (pressingEvents.Remove(eventData) && pressingEvents.Count == 0)
         {
             buttonObject.position = buttonOriginPosition;
-            if(audioSource.isPlaying){
-                audioSource.Pause();
-                bar1.SetActive(false);
-                bar2.SetActive(false);
-                play.SetActive(true);
-            }
-            else{
-                audioSource.Play();
-                bar1.SetActive(true);
-                bar2.SetActive(true);
-                play.SetActive(false);
         }
     }
-}
 }
