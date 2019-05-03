@@ -45,7 +45,7 @@ public class LVController : MonoBehaviour
 
             // .. and increase the t interpolater
             if(activateLV){
-                t += 2.0f * Time.deltaTime;
+                t += 1.0f * Time.deltaTime;
                 laneIndicator.GetComponent<MeshRenderer>().material = redLaneIndicator;
             }
             else{
