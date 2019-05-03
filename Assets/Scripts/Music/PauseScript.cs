@@ -27,6 +27,7 @@ public class PauseScript : MonoBehaviour
 
     private HashSet<ColliderButtonEventData> pressingEvents = new HashSet<ColliderButtonEventData>();
 
+    public GameObject bar1, bar2, play;
     public ColliderButtonEventData.InputButton activeButton
     {
         get
@@ -55,6 +56,10 @@ public class PauseScript : MonoBehaviour
         buttonOriginPosition = buttonObject.position;
 
         audioSource = carPlayer.GetComponent<AudioSource>();
+
+        bar1.SetActive(false);
+        bar2.SetActive(false);
+        play.SetActive(true);
     }
 #if UNITY_EDITOR
     protected virtual void OnValidate()
@@ -101,10 +106,16 @@ public class PauseScript : MonoBehaviour
             if(audioSource.isPlaying){
                 audioSource.Pause();
                 trackName.SetText(audioSource.name);
+                bar1.SetActive(false);
+                bar2.SetActive(false);
+                play.SetActive(true);
             }
             else{
                 audioSource.Play();
                 trackName.SetText(audioSource.name);
+                bar1.SetActive(true);
+                bar2.SetActive(true);
+                play.SetActive(false);
         }
     }
 }

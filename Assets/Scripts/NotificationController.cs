@@ -7,6 +7,10 @@ public class NotificationController : MonoBehaviour
 {
 
     public GameObject notification;
+
+    public GameObject yesObject;
+    public GameObject noObject;
+    public GameObject okObject;
     private TextMeshPro notificationText;
     void Start()
     {
