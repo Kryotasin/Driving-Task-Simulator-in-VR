@@ -24,11 +24,12 @@ public class StartAreaController : MonoBehaviour
 
     // Custom
 
+
     public GameObject objectiveObject;
 
     private ObjectiveController objectiveController;
    
-    public bool activateTask = false;
+    public bool isTaskActive = false;
     public ColliderButtonEventData.InputButton activeButton
     {
         get
@@ -57,7 +58,6 @@ public class StartAreaController : MonoBehaviour
         buttonOriginPosition = buttonObject.position;
 
         objectiveController = objectiveObject.GetComponent<ObjectiveController>();
-
     }
 #if UNITY_EDITOR
     protected virtual void OnValidate()
@@ -93,7 +93,8 @@ public class StartAreaController : MonoBehaviour
         if (eventData.button == m_activeButton && pressingEvents.Add(eventData) && pressingEvents.Count == 1)
         {
             buttonObject.position = buttonOriginPosition + buttonDownDisplacement;
-            Debug.Log("Start Area here");
+            Debug.Log("Start Area gripped");
+            objectiveObject.SetActive(false);
    }
     }
 
@@ -102,6 +103,13 @@ public class StartAreaController : MonoBehaviour
         if (pressingEvents.Remove(eventData) && pressingEvents.Count == 0)
         {
             buttonObject.position = buttonOriginPosition;
+            Debug.Log("Start Area exit");
+            if(!isTaskActive){
+                // Notify the player to come back and hold the StartArea
+
+                objectiveController.objectiveText.text = "Grip the start area to start.";
+                objectiveObject.SetActive(true);
+            }
         }
     }
 }

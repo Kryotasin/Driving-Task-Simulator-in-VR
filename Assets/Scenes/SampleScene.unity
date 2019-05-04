@@ -1496,6 +1496,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectiveObject: {fileID: 950813051}
+  startArea: {fileID: 1565921499}
   startTime: 0
   uiComponentInteraction: 0
   hornTime: 0
@@ -5878,7 +5879,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &950813052
 Transform:
   m_ObjectHideFlags: 0
@@ -5909,6 +5910,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objective: {fileID: 98684091}
   okObject: {fileID: 1649259843}
+  objectiveText: {fileID: 98684093}
   activateObjectiveTask: 0
 --- !u!114 &950813054
 MonoBehaviour:
@@ -7836,7 +7838,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.7
+  m_Radius: 1.4
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1565921502
 MeshRenderer:
@@ -7915,7 +7917,9 @@ MonoBehaviour:
   - {fileID: 1347590055}
   buttonObject: {fileID: 1565921500}
   buttonDownDisplacement: {x: 0, y: 0, z: 0}
-  m_activeButton: 2
+  m_activeButton: 0
+  objectiveObject: {fileID: 950813051}
+  isTaskActive: 0
 --- !u!1 &1566312711
 GameObject:
   m_ObjectHideFlags: 0
@@ -7989,7 +7993,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1649259844
 Transform:
   m_ObjectHideFlags: 0

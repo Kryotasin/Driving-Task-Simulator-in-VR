@@ -7,6 +7,10 @@ public class MasterGameControllerScript : MonoBehaviour
     public GameObject objectiveObject;
 
     private ObjectiveController objectiveController;
+    
+    public GameObject startArea;
+
+    private StartAreaController startAreaController;
 
     public float startTime = 0;
     public float uiComponentInteraction = 0;
@@ -14,6 +18,7 @@ public class MasterGameControllerScript : MonoBehaviour
     void Start()
     {
         objectiveController = objectiveObject.GetComponent<ObjectiveController>();
+        startAreaController = startArea.GetComponent<StartAreaController>();
         InvokeRepeating("randomizedStartTask", 1f, 1f);
     }
 
@@ -24,11 +29,12 @@ public class MasterGameControllerScript : MonoBehaviour
     }
 
     void randomizedStartTask(){
-            float randTime = Random.value * 10 / 2;
+            float randTime = Random.value * 10;
             Invoke("taskStarter", randTime);
     }
 
     void taskStarter(){
-        objectiveController.activateObjectiveTask = true;
+        // objectiveController.activateObjectiveTask = true;
+        // startAreaController.isTaskActive = true;
     }
 }

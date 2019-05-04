@@ -16,23 +16,15 @@ public class NotificationController : MonoBehaviour
     {
         notificationText = notification.GetComponent<TextMeshPro>();
 
-        notificationText.text = "Press Ok to continue";
-        yesObject.SetActive(false);
-        noObject.SetActive(false);
-        okObject.SetActive(true);
+        // notificationText.text = "Press Ok to continue";
+        // yesObject.SetActive(false);
+        // noObject.SetActive(false);
+        // okObject.SetActive(true);
     }
 
     // Update is called once per frame
     void Update()
     {
         
-
-
-        // switch(){
-        //     case 0:
-        //     break;
-
-        // }
-
     }
 }
