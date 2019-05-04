@@ -10,6 +10,8 @@ public class ObjectiveController : MonoBehaviour
 
     public GameObject okObject;
     private TextMeshPro notificationText;
+
+    public bool activateObjectiveTask = false;
     void Start()
     {
         notificationText = objective.GetComponent<TextMeshPro>();
@@ -20,14 +22,8 @@ public class ObjectiveController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-
-
-        // switch(){
-        //     case 0:
-        //     break;
-
-        // }
-
+        if(activateObjectiveTask){
+            
+        }
     }
 }

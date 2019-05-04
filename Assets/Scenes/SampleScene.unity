@@ -696,6 +696,7 @@ MonoBehaviour:
   activateLV: 0
   minimum: -25
   maximum: 25
+  runLVController: 0
 --- !u!1001 &122320802
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1393,7 +1394,6 @@ MonoBehaviour:
   buttonObject: {fileID: 425199116}
   buttonDownDisplacement: {x: 0, y: 0, z: 0.01}
   m_activeButton: 0
-  NotificationBox: {fileID: 630618074}
 --- !u!65 &425199118
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1452,6 +1452,53 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 425199115}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &435653132
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 435653133}
+  - component: {fileID: 435653134}
+  m_Layer: 0
+  m_Name: MasterGameController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &435653133
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 435653132}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2039061471}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &435653134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 435653132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f18e622b960dff4bb98d03d8136842d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectiveObject: {fileID: 950813051}
+  startTime: 0
+  uiComponentInteraction: 0
+  hornTime: 0
 --- !u!1 &476657932
 GameObject:
   m_ObjectHideFlags: 0
@@ -2862,7 +2909,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetSpawnController: {fileID: 35585149}
-  HMD: {fileID: 151123604}
+  objectiveObject: {fileID: 0}
+  activateTask: 0
 --- !u!54 &507553550
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5273,7 +5321,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetSpawnController: {fileID: 35585149}
-  HMD: {fileID: 886205176}
+  objectiveObject: {fileID: 0}
+  activateTask: 0
 --- !u!1 &886205176 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 197116, guid: cbfd31aaac017204885fcc03f0579a1a,
@@ -5844,7 +5893,7 @@ Transform:
   - {fileID: 98684092}
   - {fileID: 1649259844}
   m_Father: {fileID: 978195027}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 2, z: 0}
 --- !u!114 &950813053
 MonoBehaviour:
@@ -5860,6 +5909,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objective: {fileID: 98684091}
   okObject: {fileID: 1649259843}
+  activateObjectiveTask: 0
 --- !u!114 &950813054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5989,9 +6039,9 @@ Transform:
   - {fileID: 1100313379}
   - {fileID: 2041324137}
   - {fileID: 675131076}
-  - {fileID: 1565921500}
   - {fileID: 1347590055}
   - {fileID: 950813052}
+  - {fileID: 1565921500}
   m_Father: {fileID: 1660741484}
   m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6677,7 +6727,6 @@ MonoBehaviour:
   buttonObject: {fileID: 1265772525}
   buttonDownDisplacement: {x: 0, y: 0, z: 0.01}
   m_activeButton: 0
-  NotificationBox: {fileID: 630618074}
 --- !u!1 &1278490665
 GameObject:
   m_ObjectHideFlags: 0
@@ -6974,7 +7023,7 @@ Transform:
   m_LocalScale: {x: 0.29999995, y: 0.4, z: 0.01}
   m_Children: []
   m_Father: {fileID: 978195027}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1404248245
 GameObject:
@@ -7031,7 +7080,6 @@ MonoBehaviour:
   buttonObject: {fileID: 1404248246}
   buttonDownDisplacement: {x: 0, y: 0, z: 0.01}
   m_activeButton: 0
-  NotificationBox: {fileID: 1832858757}
 --- !u!65 &1404248248
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7109,6 +7157,56 @@ MonoBehaviour:
   m_activeButton: 0
   trackName: {fileID: 1178283388}
   pauseObject: {fileID: 638593506}
+--- !u!1 &1416052418 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 125382, guid: cbfd31aaac017204885fcc03f0579a1a,
+    type: 3}
+  m_PrefabInstance: {fileID: 564170342}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &1416052420
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1416052418}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1416052421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1416052418}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd87393cfb5faae40b480e1fe009f1d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetSpawnController: {fileID: 35585149}
+  objectiveObject: {fileID: 950813051}
+  activateTask: 0
+--- !u!54 &1416052422
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1416052418}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 3
 --- !u!134 &1457603417
 PhysicMaterial:
   m_ObjectHideFlags: 0
@@ -7231,7 +7329,6 @@ MonoBehaviour:
   buttonObject: {fileID: 1461334839}
   buttonDownDisplacement: {x: 0, y: 0, z: 0.01}
   m_activeButton: 0
-  NotificationBox: {fileID: 630618074}
 --- !u!1 &1463173935
 GameObject:
   m_ObjectHideFlags: 0
@@ -7705,6 +7802,8 @@ GameObject:
   - component: {fileID: 1565921503}
   - component: {fileID: 1565921502}
   - component: {fileID: 1565921501}
+  - component: {fileID: 1565921504}
+  - component: {fileID: 1565921505}
   m_Layer: 0
   m_Name: StartArea
   m_TagString: StartArea
@@ -7724,7 +7823,7 @@ Transform:
   m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_Children: []
   m_Father: {fileID: 978195027}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &1565921501
 SphereCollider:
@@ -7734,10 +7833,10 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1565921499}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.2
+  m_Radius: 0.7
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1565921502
 MeshRenderer:
@@ -7784,6 +7883,39 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1565921499}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &1565921504
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1565921499}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 3
+--- !u!114 &1565921505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1565921499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0c2dd684e524e34f9e3ebdb1327134c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectTargets:
+  - {fileID: 1347590055}
+  buttonObject: {fileID: 1565921500}
+  buttonDownDisplacement: {x: 0, y: 0, z: 0}
+  m_activeButton: 2
 --- !u!1 &1566312711
 GameObject:
   m_ObjectHideFlags: 0
@@ -7890,7 +8022,6 @@ MonoBehaviour:
   buttonObject: {fileID: 1649259844}
   buttonDownDisplacement: {x: 0, y: 0, z: 0.01}
   m_activeButton: 0
-  NotificationBox: {fileID: 950813051}
 --- !u!65 &1649259846
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8679,7 +8810,6 @@ MonoBehaviour:
   buttonObject: {fileID: 1754586736}
   buttonDownDisplacement: {x: 0, y: 0, z: 0.01}
   m_activeButton: 0
-  NotificationBox: {fileID: 1832858757}
 --- !u!65 &1754586738
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9772,6 +9902,7 @@ MonoBehaviour:
   activateLV: 0
   minimum: -25
   maximum: 25
+  runLVController: 0
 --- !u!1 &1966496954
 GameObject:
   m_ObjectHideFlags: 0
@@ -10172,6 +10303,7 @@ Transform:
   - {fileID: 2016665037}
   - {fileID: 35585150}
   - {fileID: 1465436779}
+  - {fileID: 435653133}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

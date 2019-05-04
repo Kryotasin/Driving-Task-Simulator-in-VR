@@ -3,7 +3,7 @@ using HTC.UnityPlugin.Utility;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ButtonController : MonoBehaviour
+public class StartAreaController : MonoBehaviour
     , IColliderEventPressUpHandler
     , IColliderEventPressEnterHandler
     , IColliderEventPressExitHandler
@@ -21,6 +21,14 @@ public class ButtonController : MonoBehaviour
 
     private HashSet<ColliderButtonEventData> pressingEvents = new HashSet<ColliderButtonEventData>();
 
+
+    // Custom
+
+    public GameObject objectiveObject;
+
+    private ObjectiveController objectiveController;
+   
+    public bool activateTask = false;
     public ColliderButtonEventData.InputButton activeButton
     {
         get
@@ -47,6 +55,9 @@ public class ButtonController : MonoBehaviour
         }
 
         buttonOriginPosition = buttonObject.position;
+
+        objectiveController = objectiveObject.GetComponent<ObjectiveController>();
+
     }
 #if UNITY_EDITOR
     protected virtual void OnValidate()
@@ -82,6 +93,7 @@ public class ButtonController : MonoBehaviour
         if (eventData.button == m_activeButton && pressingEvents.Add(eventData) && pressingEvents.Count == 1)
         {
             buttonObject.position = buttonOriginPosition + buttonDownDisplacement;
+            Debug.Log("Start Area here");
    }
     }
 

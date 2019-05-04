@@ -11,9 +11,12 @@ public class ControllerCollisionDetector : MonoBehaviour
     public GameObject targetSpawnController; // GameObject that holds the TargetSpawn script
     private TargetSpawner targetSpawnnerScript; // The target spawn script
     private int indexHolder;
-    public GameObject HMD; // the VR Camera - center eye
 
+    public GameObject objectiveObject;
+
+    private ObjectiveController objectiveController;
    
+    public bool activateTask = false;
     /*
         In this function we get the TargSpawn script object and set the position of the start area relative to the position of the 
         head/camera in the Unity scene
@@ -21,25 +24,15 @@ public class ControllerCollisionDetector : MonoBehaviour
     void Awake()
     {
         targetSpawnnerScript = targetSpawnController.GetComponent<TargetSpawner>();
-        // startArea.transform.position = new Vector3(7.0f, 10.0f, -6.2f);
-        // Debug.Log(startArea.transform.position);
+     
     }
 
     void Start()
     {
+        objectiveController = objectiveObject.GetComponent<ObjectiveController>();
         indexHolder = targetSpawnnerScript.targetNumber;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-     void OnCollisionEnter(Collision collision)
-    {
-    
-    }
     /*
         When the controller collides with any object
         Possible Objects:
@@ -48,12 +41,6 @@ public class ControllerCollisionDetector : MonoBehaviour
      */
     private void OnTriggerEnter(Collider other)
     {
-
-          if (other.gameObject.CompareTag("RayCastHitMarker"))
-        {
-            Physics.IgnoreCollision(other.gameObject.GetComponent<Collider>(), GetComponent<Collider>());
-            Debug.Log("Ignoreing part");
-        }
         //  Check if the object collided with is the Target
 
         if (other.gameObject.CompareTag("Target"))
@@ -64,7 +51,7 @@ public class ControllerCollisionDetector : MonoBehaviour
             other.gameObject.SetActive(false);
 
             // Set the end time
-            endTime = Time.time;
+            // endTime = Time.time;
             // Debug.Log("End Time: " + endTime);
 
             // Debug.Log("Time Taken: " + (endTime - initTime));
@@ -76,7 +63,7 @@ public class ControllerCollisionDetector : MonoBehaviour
             // Activate the start area
             // startArea.SetActive(true);
 
-            targetSpawnnerScript.targetNumber = -1; // Increase the target count by 1
+            // targetSpawnnerScript.targetNumber = -1; // Increase the target count by 1
 
         }
 
@@ -84,12 +71,18 @@ public class ControllerCollisionDetector : MonoBehaviour
         if (other.gameObject.CompareTag("StartArea"))
         {
             Debug.Log("Collision Start Area");
-            other.gameObject.SetActive(false); // Deactivate the start area
-            targetSpawnnerScript.inStartArea = true; // Set the flag to indicate the controllre is now in the start area
-            initTime = Time.time; // set the start time
+
+
+
+
+            // other.gameObject.SetActive(false); // Deactivate the start area
+            // targetSpawnnerScript.inStartArea = true; // Set the flag to indicate the controllre is now in the start area
+            // initTime = Time.time; // set the start time
+
+
             //Debug.Log("Init Time: " + initTime);
-            targetSpawnnerScript.targetNumber = indexHolder + 1; // Increase the target count by 1
-            indexHolder ++;
+            // targetSpawnnerScript.targetNumber = indexHolder + 1; // Increase the target count by 1
+            // indexHolder ++;
         }
     }
 }
