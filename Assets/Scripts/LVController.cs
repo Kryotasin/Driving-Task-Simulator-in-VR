@@ -22,6 +22,8 @@ public class LVController : MonoBehaviour
     public float minimum = -10.0F;
     public float maximum =  10.0F;
 
+    public bool runLVController = false;
+
      // starting value for the Lerp
     static float t = 0.0f;
     private Renderer rend;
@@ -33,7 +35,7 @@ public class LVController : MonoBehaviour
     void Start()
     {
         rend = LV.GetComponent<Renderer>();
-        InvokeRepeating("boolChanger", 5f, 7f);
+        InvokeRepeating("randomizedBoolChanged", 1f, 1f);
     }
 
     // Update is called once per frame
@@ -67,9 +69,16 @@ public class LVController : MonoBehaviour
         }
 
 
+        void randomizedBoolChanged(){
+            float randTime = Random.value * 10 / 2;
+            Invoke("boolChanger", randTime);
+        }
+
         void boolChanger(){
             // Debug.Log("Calling changed bool");
-            activateLV = !activateLV;
+            if(!activateLV){
+                activateLV = true;
+            }
         }
  }
 
