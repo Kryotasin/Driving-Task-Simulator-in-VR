@@ -95,7 +95,7 @@ public class StartAreaController : MonoBehaviour
             buttonObject.position = buttonOriginPosition + buttonDownDisplacement;
             Debug.Log("Start Area gripped");
             objectiveObject.SetActive(false);
-   }
+        }
     }
 
     public void OnColliderEventPressExit(ColliderButtonEventData eventData)
