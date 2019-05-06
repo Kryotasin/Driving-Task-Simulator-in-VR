@@ -29,6 +29,7 @@ public class NextButton : MonoBehaviour
 
     public GameObject pauseObject;
 
+
     public ColliderButtonEventData.InputButton activeButton
     {
         get
@@ -105,6 +106,8 @@ public class NextButton : MonoBehaviour
             pauseScript.audioSource.clip = pauseScript.clips[pauseScript.indexTracker];
             pauseScript.trackName.text = pauseScript.clips[pauseScript.indexTracker].name;
             pauseScript.audioSource.Play();
+            
+            togglePlayPause();
         }
     }
 
@@ -113,6 +116,19 @@ public class NextButton : MonoBehaviour
         if (pressingEvents.Remove(eventData) && pressingEvents.Count == 0)
         {
             buttonObject.position = buttonOriginPosition;
+        }
+    }
+
+     public void togglePlayPause(){
+        if(pauseScript.audioSource.isPlaying){
+                pauseScript.bar1.SetActive(false);
+                pauseScript.bar2.SetActive(false);
+                pauseScript.play.SetActive(true);
+            }
+            else{
+                pauseScript.bar1.SetActive(true);
+                pauseScript.bar2.SetActive(true);
+                pauseScript.play.SetActive(false);
         }
     }
 }

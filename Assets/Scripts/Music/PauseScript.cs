@@ -110,7 +110,12 @@ public class PauseScript : MonoBehaviour
         if (pressingEvents.Remove(eventData) && pressingEvents.Count == 0)
         {
             buttonObject.position = buttonOriginPosition;
-            if(audioSource.isPlaying){
+            togglePlayPause();
+        }
+    }
+
+    public void togglePlayPause(){
+        if(audioSource.isPlaying){
                 audioSource.Pause();
                 bar1.SetActive(false);
                 bar2.SetActive(false);
@@ -123,5 +128,5 @@ public class PauseScript : MonoBehaviour
                 play.SetActive(false);
         }
     }
-}
+
 }

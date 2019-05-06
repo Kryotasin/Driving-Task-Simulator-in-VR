@@ -1500,6 +1500,7 @@ MonoBehaviour:
   startTime: 0
   uiComponentInteraction: 0
   hornTime: 0
+  taskList: 
 --- !u!1 &476657932
 GameObject:
   m_ObjectHideFlags: 0
@@ -3506,7 +3507,6 @@ GameObject:
   m_Component:
   - component: {fileID: 614114616}
   - component: {fileID: 614114617}
-  - component: {fileID: 614114618}
   m_Layer: 0
   m_Name: Audio
   m_TagString: Untagged
@@ -3624,18 +3624,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &614114618
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 614114615}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!43 &630259848
 Mesh:
   m_ObjectHideFlags: 0
@@ -7159,6 +7147,9 @@ MonoBehaviour:
   m_activeButton: 0
   trackName: {fileID: 1178283388}
   pauseObject: {fileID: 638593506}
+  bar1: {fileID: 927402566}
+  bar2: {fileID: 2050589694}
+  play: {fileID: 1650646653}
 --- !u!1 &1416052418 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 125382, guid: cbfd31aaac017204885fcc03f0579a1a,
@@ -8891,6 +8882,9 @@ MonoBehaviour:
   m_activeButton: 0
   trackName: {fileID: 1178283388}
   pauseObject: {fileID: 638593506}
+  bar1: {fileID: 927402566}
+  bar2: {fileID: 2050589694}
+  play: {fileID: 1650646653}
 --- !u!43 &1773493834
 Mesh:
   m_ObjectHideFlags: 0
