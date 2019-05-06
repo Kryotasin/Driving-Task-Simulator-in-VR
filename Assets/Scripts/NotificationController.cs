@@ -11,7 +11,7 @@ public class NotificationController : MonoBehaviour
     public GameObject yesObject;
     public GameObject noObject;
     public GameObject okObject;
-    private TextMeshPro notificationText;
+    public TextMeshPro notificationText;
     void Start()
     {
         notificationText = notification.GetComponent<TextMeshPro>();

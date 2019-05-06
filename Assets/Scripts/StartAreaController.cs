@@ -93,8 +93,10 @@ public class StartAreaController : MonoBehaviour
         if (eventData.button == m_activeButton && pressingEvents.Add(eventData) && pressingEvents.Count == 1)
         {
             buttonObject.position = buttonOriginPosition + buttonDownDisplacement;
-            Debug.Log("Start Area gripped");
-            objectiveObject.SetActive(false);
+            // Debug.Log("Start Area gripped");
+            if(!isTaskActive){
+                objectiveObject.SetActive(false);
+            }
         }
     }
 
@@ -103,7 +105,7 @@ public class StartAreaController : MonoBehaviour
         if (pressingEvents.Remove(eventData) && pressingEvents.Count == 0)
         {
             buttonObject.position = buttonOriginPosition;
-            Debug.Log("Start Area exit");
+            // Debug.Log("Start Area exit");
             if(!isTaskActive){
                 // Notify the player to come back and hold the StartArea
 
