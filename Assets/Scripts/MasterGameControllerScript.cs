@@ -69,7 +69,7 @@ public class MasterGameControllerScript : MonoBehaviour
         objectiveController.activateObjectiveTask = true;
         startAreaController.isTaskActive = true;
         taskOnGoing = true;
-        Debug.Log("Running new task");
+        Debug.Log("Running new task" + taskOnGoing);
     }
 
     void endTask(){
