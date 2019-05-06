@@ -13,11 +13,15 @@ public class ObjectiveController : MonoBehaviour
 
     public bool activateObjectiveTask = false;
 
+    public GameObject masterGameControllerObejct;
+
+    private MasterGameControllerScript masterGameControllerScript;
+
     void Start()
     {
         objectiveText = objective.GetComponent<TextMeshPro>();
 
-        
+        masterGameControllerScript = masterGameControllerObejct.GetComponent<MasterGameControllerScript>();
     }
 
     // Update is called once per frame
@@ -25,9 +29,9 @@ public class ObjectiveController : MonoBehaviour
     {
         int caseIndex = Random.Range(1, 5);
 
-        if(activateObjectiveTask){
-            objectiveText.text = "Grip the start area to start.";
-            objective.SetActive(true);
-        }
+        // if(activateObjectiveTask){
+        //     objectiveText.text = "Grip the start area to start.";
+        //     objective.SetActive(true);
+        // }
     }
 }

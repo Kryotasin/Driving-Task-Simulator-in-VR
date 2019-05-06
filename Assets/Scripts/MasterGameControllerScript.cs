@@ -18,6 +18,8 @@ public class MasterGameControllerScript : MonoBehaviour
     
     public List<int> taskList = new List<int>();
 
+    public bool taskOnGoing = false;
+
     void Start()
     {
 
@@ -58,12 +60,21 @@ public class MasterGameControllerScript : MonoBehaviour
     void randomizedStartTask(){
             float randTime = Random.Range(6, 12);
 
-            Invoke("taskStarter", randTime);
+            if(!taskOnGoing){
+                Invoke("taskStarter", randTime);
+            }
     }
 
     void taskStarter(){
         objectiveController.activateObjectiveTask = true;
         startAreaController.isTaskActive = true;
+        taskOnGoing = true;
+    }
+
+    void endTask(){
+        objectiveController.activateObjectiveTask = false;
+        startAreaController.isTaskActive = false;
+        taskOnGoing = false;
     }
 
    

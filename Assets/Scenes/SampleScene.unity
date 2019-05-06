@@ -1501,6 +1501,7 @@ MonoBehaviour:
   uiComponentInteraction: 0
   hornTime: 0
   taskList: 
+  taskOnGoing: 0
 --- !u!1 &476657932
 GameObject:
   m_ObjectHideFlags: 0
@@ -5875,15 +5876,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 950813051}
-  m_LocalRotation: {x: 0, y: 0.01745245, z: 0, w: 0.99984777}
-  m_LocalPosition: {x: -0.299, y: 0.91400003, z: 0.886}
+  m_LocalRotation: {x: -0.13020828, y: 0.06915969, z: 0.009105049, w: 0.98902977}
+  m_LocalPosition: {x: -0.294, y: 0.91400003, z: 1.035}
   m_LocalScale: {x: 0.43110004, y: 0.29999998, z: 0.01}
   m_Children:
   - {fileID: 98684092}
   - {fileID: 1649259844}
   m_Father: {fileID: 978195027}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 2, z: 0}
+  m_LocalEulerAnglesHint: {x: -15, y: 8, z: 0}
 --- !u!114 &950813053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5900,6 +5901,7 @@ MonoBehaviour:
   okObject: {fileID: 1649259843}
   objectiveText: {fileID: 98684093}
   activateObjectiveTask: 0
+  masterGameControllerObejct: {fileID: 435653132}
 --- !u!114 &950813054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6183,8 +6185,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1100313378}
-  m_LocalRotation: {x: -0, y: 0.2588191, z: -0, w: 0.9659258}
-  m_LocalPosition: {x: 0.40360022, y: 0.949, z: 0.66690063}
+  m_LocalRotation: {x: -0.16773131, y: 0.25488704, z: 0.04494348, w: 0.9512512}
+  m_LocalPosition: {x: 0.326, y: 0.949, z: 0.779}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.01}
   m_Children:
   - {fileID: 1832858758}
@@ -6196,7 +6198,7 @@ Transform:
   - {fileID: 638593507}
   m_Father: {fileID: 978195027}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 30, z: 0}
+  m_LocalEulerAnglesHint: {x: -20, y: 30, z: 0}
 --- !u!1001 &1117542709
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8882,9 +8884,6 @@ MonoBehaviour:
   m_activeButton: 0
   trackName: {fileID: 1178283388}
   pauseObject: {fileID: 638593506}
-  bar1: {fileID: 927402566}
-  bar2: {fileID: 2050589694}
-  play: {fileID: 1650646653}
 --- !u!43 &1773493834
 Mesh:
   m_ObjectHideFlags: 0
