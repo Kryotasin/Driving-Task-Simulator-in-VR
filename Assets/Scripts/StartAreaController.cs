@@ -25,7 +25,7 @@ public class StartAreaController : MonoBehaviour
     // Custom
 
 
-    public GameObject objectiveObject;
+    public GameObject objectiveObject,spawnObjective;
 
     private ObjectiveController objectiveController;
    
@@ -95,7 +95,7 @@ public class StartAreaController : MonoBehaviour
             buttonObject.position = buttonOriginPosition + buttonDownDisplacement;
             // Debug.Log("Start Area gripped");
             if(!isTaskActive){
-                objectiveObject.SetActive(false);
+                Destroy(objectiveObject);
             }
         }
     }
@@ -110,7 +110,7 @@ public class StartAreaController : MonoBehaviour
                 // Notify the player to come back and hold the StartArea
 
                 objectiveController.objectiveText.text = "Grip the start area to start.";
-                objectiveObject.SetActive(true);
+                Instantiate(objectiveObject, spawnObjective.transform.position, spawnObjective.transform.rotation);
             }
         }
     }

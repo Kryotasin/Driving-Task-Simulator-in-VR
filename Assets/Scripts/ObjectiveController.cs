@@ -16,4 +16,8 @@ public class ObjectiveController : MonoBehaviour
     void Update()
     {
     }
+
+    public void SetText(string inputText){
+        objectiveText.text = inputText;
+    }
 }
