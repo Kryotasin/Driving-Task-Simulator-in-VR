@@ -5,7 +5,7 @@ using TMPro;
 
 public class MasterGameControllerScript : MonoBehaviour
 {
-    public GameObject objectiveObject,notificationObject;
+    public GameObject objectiveObject,notificationObject, spawnObjective, spawnNotification;
     public GameObject startArea;
 
     private ObjectiveController objectiveController;
