@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effectTargets:
-  - {fileID: 2512340112945243682}
+  - {fileID: 2894589751533217623}
   buttonObject: {fileID: 2894589749611455419}
   buttonDownDisplacement: {x: 0, y: 0, z: 0.01}
   m_activeButton: 0
@@ -216,7 +216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effectTargets:
-  - {fileID: 2512340112945243682}
+  - {fileID: 2894589751533217623}
   buttonObject: {fileID: 2894589749953820513}
   buttonDownDisplacement: {x: 0, y: 0, z: 0.01}
   m_activeButton: 0
