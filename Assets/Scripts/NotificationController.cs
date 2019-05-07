@@ -11,10 +11,6 @@ public class NotificationController : MonoBehaviour
     {
         notificationText = GetComponent<TextMeshPro>();
     }
-    void Update()
-    {
-        
-    }
 
     public void SetText(string inputText){
         notificationText.text = inputText;

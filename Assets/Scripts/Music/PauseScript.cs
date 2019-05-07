@@ -4,10 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class PauseScript : MonoBehaviour
+public class PauseScript : MasterGameControllerScript
     , IColliderEventPressUpHandler
     , IColliderEventPressEnterHandler
     , IColliderEventPressExitHandler
+    
 {
     public Transform[] effectTargets;
     public Transform buttonObject;
@@ -32,6 +33,9 @@ public class PauseScript : MonoBehaviour
     public AudioClip[] clips;
 
     public int indexTracker = 0;
+
+
+
     public ColliderButtonEventData.InputButton activeButton
     {
         get
@@ -102,7 +106,12 @@ public class PauseScript : MonoBehaviour
         {
             buttonObject.position = buttonOriginPosition + buttonDownDisplacement;
             trackName.text = clips[indexTracker].name;
-         }
+
+            
+            if(taskOnGoing){
+                setuiComponentInteractionTime(Time.time);
+            }
+        }
     }
 
     public void OnColliderEventPressExit(ColliderButtonEventData eventData)

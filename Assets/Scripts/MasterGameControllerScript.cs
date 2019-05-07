@@ -10,27 +10,27 @@ public class MasterGameControllerScript : MonoBehaviour
 
     private NotificationController notificationController;
     
+    private ObjectiveController objectiveController;
 
     private StartAreaController startAreaController;
 
     public float startTime = 0;
-    public float uiComponentInteraction = 0;
+    public float uiComponentInteractionTime = 0;
     public float hornTime = 0;
     
     public List<int> taskList = new List<int>();
 
     public bool taskOnGoing = false;
 
-    private TextMeshPro objectiveText;
-
     private int taskIndex;
+
+    private GameObject instantiatedObject;
 
     void Start()
     {
         // Get all variables
         notificationController = notificationObject.GetComponent<NotificationController>();
         startAreaController = startArea.GetComponent<StartAreaController>();
-        objectiveText = objectiveObject.GetComponent<TextMeshPro>();
 
         taskIndex = 0;
         
@@ -80,32 +80,50 @@ public class MasterGameControllerScript : MonoBehaviour
                 */
 
                 case 1:
-                    Instantiate(objectiveObject, spawnObjective.transform.position, spawnObjective.transform.rotation);  
-                    objectiveText.SetText("Play/Pause the music.");
-                break;
+                    instantiatedObject = Instantiate(objectiveObject, spawnObjective.transform.position, spawnObjective.transform.rotation);  
+                    objectiveController = instantiatedObject.GetComponent<ObjectiveController>();
+                    objectiveController.objectiveText.text = "Play/Pause the music.";
+                    break;
 
                 case 2:
-                    Instantiate(objectiveObject, spawnObjective.transform.position, spawnObjective.transform.rotation);
-                    objectiveText.SetText("Go to Previous Track.");
+                    instantiatedObject = Instantiate(objectiveObject, spawnObjective.transform.position, spawnObjective.transform.rotation);
+                    objectiveController = instantiatedObject.GetComponent<ObjectiveController>();
+                    objectiveController.objectiveText.text = "Go to Previous Track.";
                     break;
 
                 case 3:
-                    Instantiate(objectiveObject, spawnObjective.transform.position, spawnObjective.transform.rotation);
-                    objectiveText.SetText("Go to Next Track.");
-                break;
+                    instantiatedObject = Instantiate(objectiveObject, spawnObjective.transform.position, spawnObjective.transform.rotation);
+                    objectiveController = instantiatedObject.GetComponent<ObjectiveController>();
+                    objectiveController.objectiveText.text = "Go to Next Track.";
+                    break;
 
                 case 4:
-                    Instantiate(notificationObject, spawnNotification.transform.position, spawnNotification.transform.rotation);
+                    instantiatedObject = Instantiate(notificationObject, spawnNotification.transform.position, spawnNotification.transform.rotation);
+                    notificationController = instantiatedObject.GetComponent<NotificationController>();
                     notificationController.SetText("Press 'Yes' if you are awake.");
-                break;
+                    break;
 
                 case 5:
-                    Instantiate(notificationObject, spawnNotification.transform.position, spawnNotification.transform.rotation);
+                    instantiatedObject = Instantiate(notificationObject, spawnNotification.transform.position, spawnNotification.transform.rotation);
+                    notificationController = instantiatedObject.GetComponent<NotificationController>();
                     notificationController.SetText("Press 'No' if you are not sleeping.");
-                break;
+                    break;
 
             }
             taskIndex++;
+    }
+
+    void Update(){
+        if(taskOnGoing && uiComponentInteractionTime != 0){
+            Debug.Log(uiComponentInteractionTime);
+        }
+    }
+
+
+
+    public void setuiComponentInteractionTime(float timeToInteract){
+        uiComponentInteractionTime = timeToInteract;
+        Debug.Log(uiComponentInteractionTime);
     }
 
     void endTask(){

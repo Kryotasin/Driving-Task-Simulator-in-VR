@@ -12,11 +12,6 @@ public class ObjectiveController : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
     public void SetText(string inputText){
         objectiveText.text = inputText;
     }
