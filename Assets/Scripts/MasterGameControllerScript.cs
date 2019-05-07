@@ -26,6 +26,7 @@ public class MasterGameControllerScript : MonoBehaviour
 
     void Start()
     {
+        // Get all variables
         notificationController = notificationObject.GetComponent<NotificationController>();
         objectiveController = objectiveObject.GetComponent<ObjectiveController>();
         startAreaController = startArea.GetComponent<StartAreaController>();
@@ -55,31 +56,17 @@ public class MasterGameControllerScript : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    IEnumerator taskStarter(){
+        yield return new WaitForSeconds(5);
 
-    void randomizedStartTask(){
-            float randTime = Random.Range(6, 12);
-
-            if(!taskOnGoing){
-                Invoke("taskStarter", randTime);
-            }
-    }
-
-    void taskStarter(){
-        objectiveController.activateObjectiveTask = true;
         startAreaController.isTaskActive = true;
         taskOnGoing = true;
         Debug.Log("Running new task" + taskOnGoing);
 
 
-        objectiveObject.SetActive(false);
+            int caseIndex = Random.Range(1, 6);
 
-
-            int caseIndex = Random.Range(1, 3);
+            Debug.Log(caseIndex);
 
             switch(caseIndex){
                 /*
