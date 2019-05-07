@@ -119,13 +119,6 @@ public class MasterGameControllerScript : MonoBehaviour
         }
     }
 
-
-
-    public void setuiComponentInteractionTime(float timeToInteract){
-        uiComponentInteractionTime = timeToInteract;
-        Debug.Log(uiComponentInteractionTime);
-    }
-
     void endTask(){
         startAreaController.isTaskActive = false;
         taskOnGoing = false;

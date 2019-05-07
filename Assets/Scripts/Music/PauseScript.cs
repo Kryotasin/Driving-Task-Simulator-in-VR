@@ -107,9 +107,11 @@ public class PauseScript : MasterGameControllerScript
             buttonObject.position = buttonOriginPosition + buttonDownDisplacement;
             trackName.text = clips[indexTracker].name;
 
-            
+
             if(taskOnGoing){
-                setuiComponentInteractionTime(Time.time);
+                uiComponentInteractionTime = Time.time;
+                Debug.Log(uiComponentInteractionTime);
+                Debug.Log("TIMER AREA");
             }
         }
     }

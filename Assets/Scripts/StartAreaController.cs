@@ -92,9 +92,9 @@ public class StartAreaController : MasterGameControllerScript
         {
             buttonObject.position = buttonOriginPosition + buttonDownDisplacement;
             // Debug.Log("Start Area gripped");
-            if(!isTaskActive){
-                Destroy(objectiveObject);
-            }
+            // if(!isTaskActive){
+            //     DestroyImmediate(objectiveObject);
+            // }
         }
     }
 
@@ -103,17 +103,24 @@ public class StartAreaController : MasterGameControllerScript
         if (pressingEvents.Remove(eventData) && pressingEvents.Count == 0)
         {
             buttonObject.position = buttonOriginPosition;
-            // Debug.Log("Start Area exit");
-            if(!isTaskActive){
-                // Notify the player to come back and hold the StartArea
 
-                instantiatedObjectChild = Instantiate(objectiveObject, spawnObjective.transform.position, spawnObjective.transform.rotation);
-                objectiveController = instantiatedObjectChild.GetComponent<ObjectiveController>();
-                objectiveController.objectiveText.text = "Grip the start area to start.";
-            }
-            else{
-                    startTime = Time.time;
-                    Debug.Log(startTime);
+            // Debug.Log("Start Area exit");
+            // if(!isTaskActive){
+            //     // Notify the player to come back and hold the StartArea
+
+            //     instantiatedObjectChild = Instantiate(objectiveObject, spawnObjective.transform.position, spawnObjective.transform.rotation);
+            //     objectiveController = instantiatedObjectChild.GetComponent<ObjectiveController>();
+            //     objectiveController.objectiveText.text = "Grip the start area to start.";
+            // }
+            // else{
+            //         startTime = Time.time;
+            //         Debug.Log(startTime);
+            // }
+
+
+            if(isTaskActive){
+                startTime = Time.time;
+                Debug.Log(startTime);
             }
         }
     }

@@ -104,7 +104,7 @@ public class PreviousButton : MasterGameControllerScript
                 pauseScript.indexTracker = 3;
             }
 
-            Debug.Log(pauseScript.indexTracker);
+            // Debug.Log(pauseScript.indexTracker);
 
 
             pauseScript.audioSource.clip = pauseScript.clips[pauseScript.indexTracker];
@@ -113,7 +113,9 @@ public class PreviousButton : MasterGameControllerScript
             togglePlayPause();
 
             if(taskOnGoing){
-                setuiComponentInteractionTime(Time.time);
+                uiComponentInteractionTime = Time.time;
+                Debug.Log(uiComponentInteractionTime);
+                Debug.Log("TIMER AREA");
             }
         }
     }

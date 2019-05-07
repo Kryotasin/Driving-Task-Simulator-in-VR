@@ -3,7 +3,7 @@ using HTC.UnityPlugin.Utility;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ButtonController : MonoBehaviour
+public class ButtonController : MasterGameControllerScript
     , IColliderEventPressUpHandler
     , IColliderEventPressEnterHandler
     , IColliderEventPressExitHandler
@@ -82,7 +82,12 @@ public class ButtonController : MonoBehaviour
         if (eventData.button == m_activeButton && pressingEvents.Add(eventData) && pressingEvents.Count == 1)
         {
             buttonObject.position = buttonOriginPosition + buttonDownDisplacement;
-   }
+            if(taskOnGoing){
+                uiComponentInteractionTime = Time.time;
+                Debug.Log(uiComponentInteractionTime);
+                Debug.Log("TIMER AREA");
+            }
+        }
     }
 
     public void OnColliderEventPressExit(ColliderButtonEventData eventData)

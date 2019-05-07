@@ -108,9 +108,11 @@ public class NextButton : MasterGameControllerScript
             pauseScript.audioSource.Play();
             
             togglePlayPause();
-            
+
             if(taskOnGoing){
-                setuiComponentInteractionTime(Time.time);
+                uiComponentInteractionTime = Time.time;
+                Debug.Log(uiComponentInteractionTime);
+                Debug.Log("TIMER AREA");
             }
         }
     }
