@@ -23,6 +23,8 @@ public class MasterGameControllerScript : MonoBehaviour
 
     private TextMeshPro objectiveText;
 
+    private int taskIndex;
+
     void Start()
     {
         // Get all variables
@@ -30,6 +32,7 @@ public class MasterGameControllerScript : MonoBehaviour
         startAreaController = startArea.GetComponent<StartAreaController>();
         objectiveText = objectiveObject.GetComponent<TextMeshPro>();
 
+        taskIndex = 0;
         
         int j = 1;
 
@@ -67,12 +70,7 @@ public class MasterGameControllerScript : MonoBehaviour
         taskOnGoing = true;
         Debug.Log("Running new task" + taskOnGoing);
 
-
-            int caseIndex = Random.Range(4, 6);
-
-            Debug.Log(caseIndex);
-
-            switch(caseIndex){
+            switch(taskList[taskIndex]){
                 /*
                 1 - Play and Pause
                 2 - Previous
@@ -83,16 +81,17 @@ public class MasterGameControllerScript : MonoBehaviour
 
                 case 1:
                     Instantiate(objectiveObject, spawnObjective.transform.position, spawnObjective.transform.rotation);  
-                    objectiveText.text = "Play/Pause the music.";
+                    objectiveText.SetText("Play/Pause the music.");
                 break;
 
                 case 2:
                     Instantiate(objectiveObject, spawnObjective.transform.position, spawnObjective.transform.rotation);
-                    objectiveText.text = "Go to Previous Track."; break;
+                    objectiveText.SetText("Go to Previous Track.");
+                    break;
 
                 case 3:
                     Instantiate(objectiveObject, spawnObjective.transform.position, spawnObjective.transform.rotation);
-                    objectiveText.text = "Go to Next Track.";
+                    objectiveText.SetText("Go to Next Track.");
                 break;
 
                 case 4:
@@ -106,6 +105,7 @@ public class MasterGameControllerScript : MonoBehaviour
                 break;
 
             }
+            taskIndex++;
     }
 
     void endTask(){
