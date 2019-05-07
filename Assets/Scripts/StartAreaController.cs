@@ -24,9 +24,6 @@ public class StartAreaController : MasterGameControllerScript
 
     // Custom
 
-
-    public GameObject objectiveObject,spawnObjective;
-
     private ObjectiveController objectiveController;
    
     public bool isTaskActive = false;
