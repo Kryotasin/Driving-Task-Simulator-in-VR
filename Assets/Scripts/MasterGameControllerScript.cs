@@ -106,7 +106,6 @@ public class MasterGameControllerScript : MonoBehaviour
     }
 
     void endTask(){
-        objectiveController.activateObjectiveTask = false;
         startAreaController.isTaskActive = false;
         taskOnGoing = false;
     }
