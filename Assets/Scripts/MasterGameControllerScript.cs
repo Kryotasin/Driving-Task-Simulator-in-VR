@@ -1,14 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class MasterGameControllerScript : MonoBehaviour
 {
-    public GameObject objectiveObject;
+    public GameObject objectiveObject,notificationObject;
+    public GameObject startArea;
 
     private ObjectiveController objectiveController;
+    private NotificationController notificationController;
     
-    public GameObject startArea;
 
     private StartAreaController startAreaController;
 
@@ -20,12 +22,14 @@ public class MasterGameControllerScript : MonoBehaviour
 
     public bool taskOnGoing = false;
 
+    public TextMeshPro objectiveText;
+
     void Start()
     {
-
+        notificationController = notificationObject.GetComponent<NotificationController>();
         objectiveController = objectiveObject.GetComponent<ObjectiveController>();
         startAreaController = startArea.GetComponent<StartAreaController>();
-        InvokeRepeating("randomizedStartTask", 1f, 1f);
+        objectiveText = objectiveObject.GetComponent<TextMeshPro>();
 
         
         int j = 1;
@@ -70,6 +74,48 @@ public class MasterGameControllerScript : MonoBehaviour
         startAreaController.isTaskActive = true;
         taskOnGoing = true;
         Debug.Log("Running new task" + taskOnGoing);
+
+
+        objectiveObject.SetActive(false);
+
+
+            int caseIndex = Random.Range(1, 3);
+
+            switch(caseIndex){
+                /*
+                1 - Play and Pause
+                2 - Previous
+                3 - Next
+                4 - Yes
+                5 - No
+                */
+
+                case 1:
+                    objectiveText.text = "Play/Pause the music.";
+                    objectiveObject.SetActive(true);
+                break;
+
+                case 2:
+                    objectiveText.text = "Go to Previous Track.";
+                    objectiveObject.SetActive(true);
+                break;
+
+                case 3:
+                    objectiveText.text = "Go to Next Track.";
+                    objectiveObject.SetActive(true);
+                break;
+
+                case 4:
+                    notificationController.notificationText.text = "Press 'Yes' if you are awake.";
+                    notificationObject.SetActive(true);
+                break;
+
+                case 5:
+                    notificationController.notificationText.text = "Press 'No' if you are not sleeping.";
+                    notificationObject.SetActive(true);
+                break;
+
+            }
     }
 
     void endTask(){
