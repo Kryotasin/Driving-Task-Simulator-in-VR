@@ -52,12 +52,12 @@ public class MasterGameControllerScript : MonoBehaviour
         foreach(int k in taskList){
             Debug.Log(k);
         }
+
+        InvokeRepeating("periodicInvoker", 3.0f, 15.0f);
     }
 
-    void Update(){
-        if(!taskOnGoing){
+    void periodicInvoker(){
             StartCoroutine(taskStarter());
-        }
     }
 
     IEnumerator taskStarter(){
