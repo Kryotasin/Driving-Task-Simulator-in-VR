@@ -3,7 +3,7 @@ using HTC.UnityPlugin.Utility;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StartAreaController : MonoBehaviour
+public class StartAreaController : MasterGameControllerScript
     , IColliderEventPressUpHandler
     , IColliderEventPressEnterHandler
     , IColliderEventPressExitHandler
@@ -30,6 +30,9 @@ public class StartAreaController : MonoBehaviour
     private ObjectiveController objectiveController;
    
     public bool isTaskActive = false;
+
+    private GameObject instantiatedObjectChild;
+
     public ColliderButtonEventData.InputButton activeButton
     {
         get
@@ -56,8 +59,6 @@ public class StartAreaController : MonoBehaviour
         }
 
         buttonOriginPosition = buttonObject.position;
-
-        objectiveController = objectiveObject.GetComponent<ObjectiveController>();
     }
 #if UNITY_EDITOR
     protected virtual void OnValidate()
@@ -109,8 +110,13 @@ public class StartAreaController : MonoBehaviour
             if(!isTaskActive){
                 // Notify the player to come back and hold the StartArea
 
+                instantiatedObjectChild = Instantiate(objectiveObject, spawnObjective.transform.position, spawnObjective.transform.rotation);
+                objectiveController = instantiatedObjectChild.GetComponent<ObjectiveController>();
                 objectiveController.objectiveText.text = "Grip the start area to start.";
-                Instantiate(objectiveObject, spawnObjective.transform.position, spawnObjective.transform.rotation);
+            }
+            else{
+                    startTime = Time.time;
+                    Debug.Log(startTime);
             }
         }
     }
