@@ -31,7 +31,7 @@ public class PreviousButton : MonoBehaviour
 
     public GameObject bar1, bar2, play;
 
-    public GameObject masterControllerObject, LVObject;
+    public GameObject masterControllerObject, LVObject, parentObject;
 
     private MasterGameControllerScript masterGameControllerScript;
 
@@ -119,7 +119,11 @@ public class PreviousButton : MonoBehaviour
             pauseScript.audioSource.clip = pauseScript.clips[pauseScript.indexTracker];
             pauseScript.trackName.text = pauseScript.clips[pauseScript.indexTracker].name;
             pauseScript.audioSource.Play();
-            togglePlayPause();
+            
+            
+            pauseScript.bar1.SetActive(true);
+            pauseScript.bar2.SetActive(true);
+            pauseScript.play.SetActive(false);
 
             masterGameControllerScript.uiComponentInteractionTime = Time.time;
             Debug.Log("HIT " + masterGameControllerScript.uiComponentInteractionTime);
@@ -134,20 +138,9 @@ public class PreviousButton : MonoBehaviour
 
             masterGameControllerScript.uiComponentInteractionTime = Time.time;
             Debug.Log("HIT " + masterGameControllerScript.uiComponentInteractionTime);
-            lvController.boolChanger();           
+            lvController.boolChanger(); 
+            parentObject.SetActive(false);          
         }
     }
-
-     public void togglePlayPause(){
-        if(pauseScript.audioSource.isPlaying){
-                pauseScript.bar1.SetActive(false);
-                pauseScript.bar2.SetActive(false);
-                pauseScript.play.SetActive(true);
-            }
-            else{
-                pauseScript.bar1.SetActive(true);
-                pauseScript.bar2.SetActive(true);
-                pauseScript.play.SetActive(false);
-        }
-    }
+    
 }

@@ -34,7 +34,7 @@ public class PauseScript : MonoBehaviour
 
     public int indexTracker = 0;
 
-    public GameObject pauseObject, masterControllerObject, LVObject;
+    public GameObject pauseObject, masterControllerObject, LVObject, parentObject;
 
     private MasterGameControllerScript masterGameControllerScript;
 
@@ -125,8 +125,9 @@ public class PauseScript : MonoBehaviour
             togglePlayPause();
 
             masterGameControllerScript.uiComponentInteractionTime = Time.time;
-            Debug.Log("HIT " + masterGameControllerScript.uiComponentInteractionTime);
+            // Debug.Log("HIT " + masterGameControllerScript.uiComponentInteractionTime);
             lvController.boolChanger();
+            parentObject.SetActive(false);
         }
     }
 

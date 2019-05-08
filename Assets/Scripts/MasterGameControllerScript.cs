@@ -60,7 +60,7 @@ public class MasterGameControllerScript : MonoBehaviour
         }
 
 
-        InvokeRepeating("periodicInvoker", 3.0f, 15.0f);
+        InvokeRepeating("periodicInvoker", 3.0f, 5.0f);
     }
 
     void periodicInvoker(){
@@ -68,13 +68,12 @@ public class MasterGameControllerScript : MonoBehaviour
     }
 
     IEnumerator taskStarter(){  
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(3);
 
         taskOnGoing = true;
         Debug.Log("Running new task" + taskOnGoing);
-int test = 4;
-            // switch(taskList[taskIndex]){
-                switch(test){
+
+            switch(taskList[taskIndex]){
                 /*
                 1 - Play and Pause
                 2 - Previous
@@ -111,6 +110,10 @@ int test = 4;
             }
             taskIndex++;
             
+            if(taskIndex == 41){
+                objectiveController.SetText("Session Complete");
+                objectiveObject.SetActive(true);
+            }
     }
 
     void Update(){
@@ -122,7 +125,7 @@ int test = 4;
     public void endTask(){
         taskOnGoing = false;
 
-        handTracker.taskNumber = 4;
+        handTracker.taskNumber = taskList[taskIndex];
 
         handTracker.startTime = startTime;
 

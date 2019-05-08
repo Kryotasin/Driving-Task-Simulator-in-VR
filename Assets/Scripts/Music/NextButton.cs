@@ -26,7 +26,7 @@ public class NextButton : MonoBehaviour
     private HashSet<ColliderButtonEventData> pressingEvents = new HashSet<ColliderButtonEventData>();
 
     private PauseScript pauseScript;
-    public GameObject pauseObject, masterControllerObject, LVObject;
+    public GameObject pauseObject, masterControllerObject, LVObject, parentObject;
 
     private MasterGameControllerScript masterGameControllerScript;
 
@@ -112,7 +112,9 @@ public class NextButton : MonoBehaviour
             pauseScript.trackName.text = pauseScript.clips[pauseScript.indexTracker].name;
             pauseScript.audioSource.Play();
             
-            togglePlayPause();
+            pauseScript.bar1.SetActive(true);
+            pauseScript.bar2.SetActive(true);
+            pauseScript.play.SetActive(false);
 
             masterGameControllerScript.uiComponentInteractionTime = Time.time;
             Debug.Log("HIT " + masterGameControllerScript.uiComponentInteractionTime);
@@ -128,19 +130,8 @@ public class NextButton : MonoBehaviour
             masterGameControllerScript.uiComponentInteractionTime = Time.time;
             Debug.Log("HIT " + masterGameControllerScript.uiComponentInteractionTime);
             lvController.boolChanger();
+            parentObject.SetActive(false);
         }
     }
 
-     public void togglePlayPause(){
-        if(pauseScript.audioSource.isPlaying){
-                pauseScript.bar1.SetActive(false);
-                pauseScript.bar2.SetActive(false);
-                pauseScript.play.SetActive(true);
-            }
-            else{
-                pauseScript.bar1.SetActive(true);
-                pauseScript.bar2.SetActive(true);
-                pauseScript.play.SetActive(false);
-        }
-    }
 }
