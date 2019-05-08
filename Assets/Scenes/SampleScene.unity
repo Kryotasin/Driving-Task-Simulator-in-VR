@@ -7510,6 +7510,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 996c9973d1d88aa47838c02ccdaf5b5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectiveObject: {fileID: 1674025673}
   objectiveText: {fileID: 693043142}
 --- !u!114 &1674025676
 MonoBehaviour:
