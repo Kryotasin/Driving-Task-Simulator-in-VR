@@ -3,7 +3,7 @@ using HTC.UnityPlugin.Utility;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StartAreaController : MasterGameControllerScript
+public class StartAreaController : MonoBehaviour
     , IColliderEventPressUpHandler
     , IColliderEventPressEnterHandler
     , IColliderEventPressExitHandler
@@ -24,9 +24,7 @@ public class StartAreaController : MasterGameControllerScript
 
     // Custom
    
-    public bool isTaskActive = false;
-
-    private GameObject instantiatedObjectChild, masterControllerObject;
+    public GameObject masterControllerObject;
 
     private MasterGameControllerScript masterGameControllerScript;
 
@@ -103,12 +101,11 @@ public class StartAreaController : MasterGameControllerScript
         {
             buttonObject.position = buttonOriginPosition;
 
-            masterGameControllerScript.startTime = Time.time;
+            
 
 
-            if(isTaskActive){
-                startTime = Time.time;
-                Debug.Log(startTime);
+            if(masterGameControllerScript.taskOnGoing){
+                masterGameControllerScript.startTime = Time.time;
             }
         }
     }

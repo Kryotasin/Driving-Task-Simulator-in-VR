@@ -70,7 +70,6 @@ public class MasterGameControllerScript : MonoBehaviour
     IEnumerator taskStarter(){  
         yield return new WaitForSeconds(5);
 
-        startAreaController.isTaskActive = true;
         taskOnGoing = true;
         Debug.Log("Running new task" + taskOnGoing);
 int test = 4;
@@ -121,7 +120,6 @@ int test = 4;
     }
 
     public void endTask(){
-        startAreaController.isTaskActive = false;
         taskOnGoing = false;
 
         handTracker.taskNumber = 4;

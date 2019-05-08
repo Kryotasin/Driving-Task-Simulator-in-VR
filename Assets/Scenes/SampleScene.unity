@@ -7184,24 +7184,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0c2dd684e524e34f9e3ebdb1327134c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectiveObject: {fileID: 5245371643158831246, guid: 11261bce2ea14334b9b528794e6ee352,
-    type: 3}
-  notificationObject: {fileID: 0}
-  objectTrackingLogger: {fileID: 0}
-  startArea: {fileID: 0}
-  startTime: 0
-  uiComponentInteractionTime: 0
-  uiComponentExitTime: 0
-  hornTime: 0
-  taskList: 
-  taskOnGoing: 0
-  taskEnded: 0
   effectTargets:
   - {fileID: 1347590055}
   buttonObject: {fileID: 1565921500}
   buttonDownDisplacement: {x: 0, y: 0, z: 0}
   m_activeButton: 0
-  isTaskActive: 0
+  masterControllerObject: {fileID: 435653132}
 --- !u!1 &1566312711
 GameObject:
   m_ObjectHideFlags: 0
