@@ -26,8 +26,9 @@ public class NextButton : MonoBehaviour
     private HashSet<ColliderButtonEventData> pressingEvents = new HashSet<ColliderButtonEventData>();
 
     private PauseScript pauseScript;
+    public GameObject pauseObject, masterControllerObject;
 
-    public GameObject pauseObject;
+    private MasterGameControllerScript masterGameControllerScript;
 
 
     public ColliderButtonEventData.InputButton activeButton
@@ -58,6 +59,8 @@ public class NextButton : MonoBehaviour
         }
 
         buttonOriginPosition = buttonObject.position;
+
+        masterGameControllerScript = masterControllerObject.GetComponent<MasterGameControllerScript>();
     }
 #if UNITY_EDITOR
     protected virtual void OnValidate()
@@ -108,6 +111,9 @@ public class NextButton : MonoBehaviour
             pauseScript.audioSource.Play();
             
             togglePlayPause();
+
+            masterGameControllerScript.uiComponentInteractionTime = Time.time;
+            Debug.Log("HIT " + masterGameControllerScript.uiComponentInteractionTime);
         }
     }
 

@@ -3387,6 +3387,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 046ae2b236bcf094fb42b006df1e3d1b, type: 3}
   - {fileID: 8300000, guid: 8bd9b13e97bbc0a44b9d1e58f693fc37, type: 3}
   indexTracker: 0
+  pauseObject: {fileID: 638593506}
+  masterControllerObject: {fileID: 435653132}
 --- !u!1 &675131075
 GameObject:
   m_ObjectHideFlags: 0
@@ -6499,6 +6501,7 @@ MonoBehaviour:
   bar1: {fileID: 927402566}
   bar2: {fileID: 2050589694}
   play: {fileID: 1650646653}
+  masterControllerObject: {fileID: 435653132}
 --- !u!1 &1416052418 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 125382, guid: cbfd31aaac017204885fcc03f0579a1a,
@@ -8245,6 +8248,7 @@ MonoBehaviour:
   m_activeButton: 0
   trackName: {fileID: 1178283388}
   pauseObject: {fileID: 638593506}
+  masterControllerObject: {fileID: 435653132}
 --- !u!43 &1773493834
 Mesh:
   m_ObjectHideFlags: 0

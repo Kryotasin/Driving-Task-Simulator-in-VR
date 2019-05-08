@@ -69,7 +69,7 @@ public class MasterGameControllerScript : MonoBehaviour
         startAreaController.isTaskActive = true;
         taskOnGoing = true;
         Debug.Log("Running new task" + taskOnGoing);
-int test = 4;
+int test = 1;
             // switch(taskList[taskIndex]){
                 switch(test){
                 /*

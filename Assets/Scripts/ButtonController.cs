@@ -87,8 +87,10 @@ public class ButtonController : MonoBehaviour
         if (eventData.button == m_activeButton && pressingEvents.Add(eventData) && pressingEvents.Count == 1)
         {
             buttonObject.position = buttonOriginPosition + buttonDownDisplacement;
+
+            
             masterGameControllerScript.uiComponentInteractionTime = Time.time;
-            Debug.Log("HIT " + masterGameControllerScript.uiComponentInteractionTime);
+            // Debug.Log("HIT " + masterGameControllerScript.uiComponentInteractionTime);
             parentObject.SetActive(false);
         }
     }
