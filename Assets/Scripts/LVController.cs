@@ -35,7 +35,6 @@ public class LVController : MonoBehaviour
     void Start()
     {
         rend = LV.GetComponent<Renderer>();
-        InvokeRepeating("randomizedBoolChanged", 1f, 2.5f);
     }
 
     // Update is called once per frame
@@ -68,13 +67,7 @@ public class LVController : MonoBehaviour
             }
         }
 
-
-        void randomizedBoolChanged(){
-            float randTime = Random.value * 10 / 2;
-            Invoke("boolChanger", randTime);
-        }
-
-        void boolChanger(){
+        public void boolChanger(){
                 activateLV = true;
         }
  }

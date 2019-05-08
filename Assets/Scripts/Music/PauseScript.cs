@@ -34,9 +34,11 @@ public class PauseScript : MonoBehaviour
 
     public int indexTracker = 0;
 
-    public GameObject pauseObject, masterControllerObject;
+    public GameObject pauseObject, masterControllerObject, LVObject;
 
     private MasterGameControllerScript masterGameControllerScript;
+
+    private LVController lvController;
 
     public ColliderButtonEventData.InputButton activeButton
     {
@@ -74,6 +76,8 @@ public class PauseScript : MonoBehaviour
         play.SetActive(true);
 
         masterGameControllerScript = masterControllerObject.GetComponent<MasterGameControllerScript>();
+        lvController = LVObject.GetComponent<LVController>();
+
     }
 #if UNITY_EDITOR
     protected virtual void OnValidate()
@@ -110,8 +114,6 @@ public class PauseScript : MonoBehaviour
         {
             buttonObject.position = buttonOriginPosition + buttonDownDisplacement;
             trackName.text = clips[indexTracker].name;
-
-
         }
     }
 
@@ -124,6 +126,7 @@ public class PauseScript : MonoBehaviour
 
             masterGameControllerScript.uiComponentInteractionTime = Time.time;
             Debug.Log("HIT " + masterGameControllerScript.uiComponentInteractionTime);
+            lvController.boolChanger();
         }
     }
 

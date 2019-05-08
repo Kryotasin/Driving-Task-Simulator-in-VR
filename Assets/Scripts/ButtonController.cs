@@ -24,6 +24,8 @@ public class ButtonController : MonoBehaviour
     public GameObject masterControllerObject, parentObject, LVObject;
 
     private MasterGameControllerScript masterGameControllerScript;
+
+    private LVController lvController;
     public ColliderButtonEventData.InputButton activeButton
     {
         get
@@ -52,6 +54,8 @@ public class ButtonController : MonoBehaviour
         buttonOriginPosition = buttonObject.position;
 
         masterGameControllerScript = masterControllerObject.GetComponent<MasterGameControllerScript>();
+    
+        lvController = LVObject.GetComponent<LVController>();
     }
 #if UNITY_EDITOR
     protected virtual void OnValidate()
@@ -91,7 +95,6 @@ public class ButtonController : MonoBehaviour
             
             masterGameControllerScript.uiComponentInteractionTime = Time.time;
             // Debug.Log("HIT " + masterGameControllerScript.uiComponentInteractionTime);
-            parentObject.SetActive(false);
         }
     }
 
@@ -101,7 +104,8 @@ public class ButtonController : MonoBehaviour
         {
             buttonObject.position = buttonOriginPosition;
             masterGameControllerScript.uiComponentExitTime = Time.time;
-
+            lvController.boolChanger();
+            parentObject.SetActive(false);
         }
     }
 }

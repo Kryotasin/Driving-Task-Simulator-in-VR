@@ -31,10 +31,11 @@ public class PreviousButton : MonoBehaviour
 
     public GameObject bar1, bar2, play;
 
-    public GameObject masterControllerObject;
+    public GameObject masterControllerObject, LVObject;
 
     private MasterGameControllerScript masterGameControllerScript;
 
+    private LVController lvController;
 
     public ColliderButtonEventData.InputButton activeButton
     {
@@ -66,6 +67,8 @@ public class PreviousButton : MonoBehaviour
         buttonOriginPosition = buttonObject.position;
 
         masterGameControllerScript = masterControllerObject.GetComponent<MasterGameControllerScript>();
+    
+        lvController = LVObject.GetComponent<LVController>();
     }
 #if UNITY_EDITOR
     protected virtual void OnValidate()
@@ -128,7 +131,10 @@ public class PreviousButton : MonoBehaviour
         if (pressingEvents.Remove(eventData) && pressingEvents.Count == 0)
         {
             buttonObject.position = buttonOriginPosition;
-            
+
+            masterGameControllerScript.uiComponentInteractionTime = Time.time;
+            Debug.Log("HIT " + masterGameControllerScript.uiComponentInteractionTime);
+            lvController.boolChanger();           
         }
     }
 

@@ -976,6 +976,7 @@ MonoBehaviour:
   startArea: {fileID: 1565921499}
   startTime: 0
   uiComponentInteractionTime: 0
+  uiComponentExitTime: 0
   hornTime: 0
   taskList: 
   taskOnGoing: 0
@@ -4388,6 +4389,7 @@ MonoBehaviour:
   m_activeButton: 0
   masterControllerObject: {fileID: 0}
   parentObject: {fileID: 0}
+  LVObject: {fileID: 0}
 --- !u!65 &824320644
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4867,6 +4869,7 @@ MonoBehaviour:
   m_activeButton: 0
   masterControllerObject: {fileID: 0}
   parentObject: {fileID: 0}
+  LVObject: {fileID: 0}
 --- !u!65 &854024728
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6421,6 +6424,7 @@ MonoBehaviour:
   m_activeButton: 0
   masterControllerObject: {fileID: 0}
   parentObject: {fileID: 0}
+  LVObject: {fileID: 0}
 --- !u!65 &1404248248
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7182,6 +7186,7 @@ MonoBehaviour:
   startArea: {fileID: 0}
   startTime: 0
   uiComponentInteractionTime: 0
+  uiComponentExitTime: 0
   hornTime: 0
   taskList: 
   taskOnGoing: 0
@@ -8171,6 +8176,7 @@ MonoBehaviour:
   m_activeButton: 0
   masterControllerObject: {fileID: 0}
   parentObject: {fileID: 0}
+  LVObject: {fileID: 0}
 --- !u!65 &1754586738
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8962,6 +8968,7 @@ MonoBehaviour:
   m_activeButton: 0
   masterControllerObject: {fileID: 435653132}
   parentObject: {fileID: 2056908076}
+  LVObject: {fileID: 1951441355}
 --- !u!65 &1825463863
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9365,6 +9372,7 @@ MonoBehaviour:
   m_activeButton: 0
   masterControllerObject: {fileID: 435653132}
   parentObject: {fileID: 2056908076}
+  LVObject: {fileID: 1951441355}
 --- !u!65 &1939809437
 BoxCollider:
   m_ObjectHideFlags: 0

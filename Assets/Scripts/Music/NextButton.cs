@@ -26,11 +26,11 @@ public class NextButton : MonoBehaviour
     private HashSet<ColliderButtonEventData> pressingEvents = new HashSet<ColliderButtonEventData>();
 
     private PauseScript pauseScript;
-    public GameObject pauseObject, masterControllerObject;
+    public GameObject pauseObject, masterControllerObject, LVObject;
 
     private MasterGameControllerScript masterGameControllerScript;
 
-
+    private LVController lvController;
     public ColliderButtonEventData.InputButton activeButton
     {
         get
@@ -61,6 +61,8 @@ public class NextButton : MonoBehaviour
         buttonOriginPosition = buttonObject.position;
 
         masterGameControllerScript = masterControllerObject.GetComponent<MasterGameControllerScript>();
+    
+        lvController = LVObject.GetComponent<LVController>();
     }
 #if UNITY_EDITOR
     protected virtual void OnValidate()
@@ -122,6 +124,10 @@ public class NextButton : MonoBehaviour
         if (pressingEvents.Remove(eventData) && pressingEvents.Count == 0)
         {
             buttonObject.position = buttonOriginPosition;
+
+            masterGameControllerScript.uiComponentInteractionTime = Time.time;
+            Debug.Log("HIT " + masterGameControllerScript.uiComponentInteractionTime);
+            lvController.boolChanger();
         }
     }
 
