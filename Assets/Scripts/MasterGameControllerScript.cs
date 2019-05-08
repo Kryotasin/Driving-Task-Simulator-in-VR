@@ -135,7 +135,7 @@ int test = 4;
         handTracker.hornTime = hornTime;
 
 
-        //handTracker.WriteFile();
+        handTracker.WriteFile();
 
         Debug.Log(startTime + " " +  uiComponentInteractionTime + " " +  uiComponentExitTime + " " + hornTime);
 

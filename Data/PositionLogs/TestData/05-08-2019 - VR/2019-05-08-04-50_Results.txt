@@ -1,0 +1,7 @@
+5/8/2019 4:50:22 AM	The file contains frame by frame data of location for 3 tracked objects 
+The coordinate system is in Unity world coordinates.
+-------------------------------------------------
+TaskNumber	StartTime	UIComponentInteractionTime	UIComponentExitTime	HornTime	
+4	0	10.04356	10.32352	11.39349	
+4	0	24.87482	24.8857	26.0602	
+4	0	39.52913	39.78557	40.7218	

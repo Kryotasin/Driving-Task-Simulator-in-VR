@@ -26,7 +26,9 @@ public class StartAreaController : MasterGameControllerScript
    
     public bool isTaskActive = false;
 
-    private GameObject instantiatedObjectChild;
+    private GameObject instantiatedObjectChild, masterControllerObject;
+
+    private MasterGameControllerScript masterGameControllerScript;
 
     public ColliderButtonEventData.InputButton activeButton
     {
@@ -54,6 +56,8 @@ public class StartAreaController : MasterGameControllerScript
         }
 
         buttonOriginPosition = buttonObject.position;
+        masterGameControllerScript = masterControllerObject.GetComponent<MasterGameControllerScript>();
+
     }
 #if UNITY_EDITOR
     protected virtual void OnValidate()
@@ -89,10 +93,7 @@ public class StartAreaController : MasterGameControllerScript
         if (eventData.button == m_activeButton && pressingEvents.Add(eventData) && pressingEvents.Count == 1)
         {
             buttonObject.position = buttonOriginPosition + buttonDownDisplacement;
-            // Debug.Log("Start Area gripped");
-            // if(!isTaskActive){
-            //     DestroyImmediate(objectiveObject);
-            // }
+            
         }
     }
 
@@ -102,18 +103,7 @@ public class StartAreaController : MasterGameControllerScript
         {
             buttonObject.position = buttonOriginPosition;
 
-            // Debug.Log("Start Area exit");
-            // if(!isTaskActive){
-            //     // Notify the player to come back and hold the StartArea
-
-            //     instantiatedObjectChild = Instantiate(objectiveObject, spawnObjective.transform.position, spawnObjective.transform.rotation);
-            //     objectiveController = instantiatedObjectChild.GetComponent<ObjectiveController>();
-            //     objectiveController.objectiveText.text = "Grip the start area to start.";
-            // }
-            // else{
-            //         startTime = Time.time;
-            //         Debug.Log(startTime);
-            // }
+            masterGameControllerScript.startTime = Time.time;
 
 
             if(isTaskActive){
