@@ -3,7 +3,7 @@ using HTC.UnityPlugin.Utility;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ButtonController : MasterGameControllerScript
+public class ButtonController : MonoBehaviour
     , IColliderEventPressUpHandler
     , IColliderEventPressEnterHandler
     , IColliderEventPressExitHandler
@@ -21,6 +21,9 @@ public class ButtonController : MasterGameControllerScript
 
     private HashSet<ColliderButtonEventData> pressingEvents = new HashSet<ColliderButtonEventData>();
 
+    public GameObject instantiatedObjectChild, masterController;
+
+    private MasterGameControllerScript masterGameControllerScript;
     public ColliderButtonEventData.InputButton activeButton
     {
         get
@@ -47,6 +50,8 @@ public class ButtonController : MasterGameControllerScript
         }
 
         buttonOriginPosition = buttonObject.position;
+
+        masterGameControllerScript = masterController.GetComponent<MasterGameControllerScript>();
     }
 #if UNITY_EDITOR
     protected virtual void OnValidate()
@@ -82,10 +87,7 @@ public class ButtonController : MasterGameControllerScript
         if (eventData.button == m_activeButton && pressingEvents.Add(eventData) && pressingEvents.Count == 1)
         {
             buttonObject.position = buttonOriginPosition + buttonDownDisplacement;
-
-            uiComponentInteractionTime = Time.time;
-            Debug.Log(uiComponentInteractionTime);
-            instantiatedObject.SetActive(false);
+            
         }
     }
 

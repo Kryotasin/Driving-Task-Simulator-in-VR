@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class NextButton : MasterGameControllerScript
+public class NextButton : MonoBehaviour
     , IColliderEventPressUpHandler
     , IColliderEventPressEnterHandler
     , IColliderEventPressExitHandler
@@ -108,12 +108,6 @@ public class NextButton : MasterGameControllerScript
             pauseScript.audioSource.Play();
             
             togglePlayPause();
-
-            if(taskOnGoing){
-                uiComponentInteractionTime = Time.time;
-                Debug.Log(uiComponentInteractionTime);
-                Debug.Log("TIMER AREA");
-            }
         }
     }
 

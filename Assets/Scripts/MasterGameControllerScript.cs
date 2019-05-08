@@ -97,7 +97,7 @@ int test = 4;
                     break;
 
                 case 4:
-                    instantiatedObject = Instantiate(notificationObject, spawnNotification.transform.position, spawnNotification.transform.rotation);
+                    instantiatedObject = (GameObject) Instantiate(notificationObject, spawnNotification.transform.position, spawnNotification.transform.rotation);
                     notificationController = instantiatedObject.GetComponent<NotificationController>();
                     notificationController.SetText("Press 'Yes' if you are awake.");
                     break;

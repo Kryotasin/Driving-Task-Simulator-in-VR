@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class PauseScript : MasterGameControllerScript
+public class PauseScript : MonoBehaviour
     , IColliderEventPressUpHandler
     , IColliderEventPressEnterHandler
     , IColliderEventPressExitHandler
@@ -108,11 +108,6 @@ public class PauseScript : MasterGameControllerScript
             trackName.text = clips[indexTracker].name;
 
 
-            if(taskOnGoing){
-                uiComponentInteractionTime = Time.time;
-                Debug.Log(uiComponentInteractionTime);
-                Debug.Log("TIMER AREA");
-            }
         }
     }
 
