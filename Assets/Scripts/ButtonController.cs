@@ -82,11 +82,10 @@ public class ButtonController : MasterGameControllerScript
         if (eventData.button == m_activeButton && pressingEvents.Add(eventData) && pressingEvents.Count == 1)
         {
             buttonObject.position = buttonOriginPosition + buttonDownDisplacement;
-            if(taskOnGoing){
-                uiComponentInteractionTime = Time.time;
-                Debug.Log(uiComponentInteractionTime);
-                Debug.Log("TIMER AREA");
-            }
+
+            uiComponentInteractionTime = Time.time;
+            Debug.Log(uiComponentInteractionTime);
+            instantiatedObject.SetActive(false);
         }
     }
 

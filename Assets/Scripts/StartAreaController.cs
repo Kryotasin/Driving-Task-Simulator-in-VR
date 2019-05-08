@@ -23,8 +23,6 @@ public class StartAreaController : MasterGameControllerScript
 
 
     // Custom
-
-    private ObjectiveController objectiveController;
    
     public bool isTaskActive = false;
 

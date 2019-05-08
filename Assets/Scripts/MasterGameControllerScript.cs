@@ -5,7 +5,7 @@ using TMPro;
 
 public class MasterGameControllerScript : MonoBehaviour
 {
-    public GameObject objectiveObject,notificationObject, spawnObjective, spawnNotification;
+    public GameObject instantiatedObject, objectiveObject,notificationObject, spawnObjective, spawnNotification;
     public GameObject startArea;
 
     private NotificationController notificationController;
@@ -23,8 +23,6 @@ public class MasterGameControllerScript : MonoBehaviour
     public bool taskOnGoing = false;
 
     private int taskIndex;
-
-    private GameObject instantiatedObject;
 
     void Start()
     {
@@ -69,8 +67,9 @@ public class MasterGameControllerScript : MonoBehaviour
         startAreaController.isTaskActive = true;
         taskOnGoing = true;
         Debug.Log("Running new task" + taskOnGoing);
-
-            switch(taskList[taskIndex]){
+int test = 4;
+            // switch(taskList[taskIndex]){
+                switch(test){
                 /*
                 1 - Play and Pause
                 2 - Previous
@@ -111,12 +110,10 @@ public class MasterGameControllerScript : MonoBehaviour
 
             }
             taskIndex++;
+            
     }
 
     void Update(){
-        if(taskOnGoing && uiComponentInteractionTime != 0){
-            Debug.Log(uiComponentInteractionTime);
-        }
     }
 
     void endTask(){
