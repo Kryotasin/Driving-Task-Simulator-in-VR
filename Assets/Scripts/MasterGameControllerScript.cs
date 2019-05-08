@@ -20,7 +20,7 @@ public class MasterGameControllerScript : MonoBehaviour
     
     public List<int> taskList = new List<int>();
 
-    public bool taskOnGoing = false;
+    public bool taskOnGoing = false, taskEnded = false;
 
     private int taskIndex;
 
@@ -63,13 +63,13 @@ public class MasterGameControllerScript : MonoBehaviour
             StartCoroutine(taskStarter());
     }
 
-    IEnumerator taskStarter(){
+    IEnumerator taskStarter(){  
         yield return new WaitForSeconds(5);
 
         startAreaController.isTaskActive = true;
         taskOnGoing = true;
         Debug.Log("Running new task" + taskOnGoing);
-int test = 1;
+int test = 4;
             // switch(taskList[taskIndex]){
                 switch(test){
                 /*
@@ -86,12 +86,12 @@ int test = 1;
                     break;
 
                 case 2:
-                    objectiveController.objectiveText.text = "Go to Previous Track.";
+                    objectiveController.SetText("Go to Previous Track.");
                     objectiveObject.SetActive(true);
                     break;
 
                 case 3:
-                    objectiveController.objectiveText.text = "Go to Next Track.";
+                    objectiveController.SetText("Go to Next Track.");
                     objectiveObject.SetActive(true);
                     break;
 
@@ -112,7 +112,7 @@ int test = 1;
 
     void Update(){
         if(taskOnGoing){
-            Debug.Log("Running");
+            
         }
     }
 

@@ -979,6 +979,7 @@ MonoBehaviour:
   hornTime: 0
   taskList: 
   taskOnGoing: 0
+  taskEnded: 0
 --- !u!1 &476657932
 GameObject:
   m_ObjectHideFlags: 0
@@ -4384,6 +4385,7 @@ MonoBehaviour:
   buttonDownDisplacement: {x: 0, y: 0, z: 0.01}
   m_activeButton: 0
   masterControllerObject: {fileID: 0}
+  parentObject: {fileID: 0}
 --- !u!65 &824320644
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4862,6 +4864,7 @@ MonoBehaviour:
   buttonDownDisplacement: {x: 0, y: 0, z: 0.01}
   m_activeButton: 0
   masterControllerObject: {fileID: 0}
+  parentObject: {fileID: 0}
 --- !u!65 &854024728
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6415,6 +6418,7 @@ MonoBehaviour:
   buttonDownDisplacement: {x: 0, y: 0, z: 0.01}
   m_activeButton: 0
   masterControllerObject: {fileID: 0}
+  parentObject: {fileID: 0}
 --- !u!65 &1404248248
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7178,6 +7182,7 @@ MonoBehaviour:
   hornTime: 0
   taskList: 
   taskOnGoing: 0
+  taskEnded: 0
   effectTargets:
   - {fileID: 1347590055}
   buttonObject: {fileID: 1565921500}
@@ -7481,7 +7486,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1674025674
 Transform:
   m_ObjectHideFlags: 0
@@ -8162,6 +8167,7 @@ MonoBehaviour:
   buttonDownDisplacement: {x: 0, y: 0, z: 0.01}
   m_activeButton: 0
   masterControllerObject: {fileID: 0}
+  parentObject: {fileID: 0}
 --- !u!65 &1754586738
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8951,6 +8957,7 @@ MonoBehaviour:
   buttonDownDisplacement: {x: 0, y: 0, z: 0.01}
   m_activeButton: 0
   masterControllerObject: {fileID: 435653132}
+  parentObject: {fileID: 2056908076}
 --- !u!65 &1825463863
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9353,6 +9360,7 @@ MonoBehaviour:
   buttonDownDisplacement: {x: 0, y: 0, z: 0.01}
   m_activeButton: 0
   masterControllerObject: {fileID: 435653132}
+  parentObject: {fileID: 2056908076}
 --- !u!65 &1939809437
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9750,7 +9758,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2016665036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9790,7 +9798,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2016665035}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b6c12e1991d198248978d5debe27882f, type: 3}
   m_Name: 
@@ -10219,7 +10227,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2056908077
 Transform:
   m_ObjectHideFlags: 0
