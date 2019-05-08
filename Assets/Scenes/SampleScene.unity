@@ -973,6 +973,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectiveObject: {fileID: 1674025673}
   notificationObject: {fileID: 2056908076}
+  objectTrackingLogger: {fileID: 2016665035}
   startArea: {fileID: 1565921499}
   startTime: 0
   uiComponentInteractionTime: 0
@@ -3390,6 +3391,7 @@ MonoBehaviour:
   indexTracker: 0
   pauseObject: {fileID: 638593506}
   masterControllerObject: {fileID: 435653132}
+  LVObject: {fileID: 1951441355}
 --- !u!1 &675131075
 GameObject:
   m_ObjectHideFlags: 0
@@ -3696,6 +3698,7 @@ MonoBehaviour:
   m_activeButton: 0
   hornObject: {fileID: 512356568}
   LV: {fileID: 1951441355}
+  masterControllerObject: {fileID: 435653132}
 --- !u!1 &693043140
 GameObject:
   m_ObjectHideFlags: 0
@@ -6506,6 +6509,7 @@ MonoBehaviour:
   bar2: {fileID: 2050589694}
   play: {fileID: 1650646653}
   masterControllerObject: {fileID: 435653132}
+  LVObject: {fileID: 1951441355}
 --- !u!1 &1416052418 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 125382, guid: cbfd31aaac017204885fcc03f0579a1a,
@@ -7183,6 +7187,7 @@ MonoBehaviour:
   objectiveObject: {fileID: 5245371643158831246, guid: 11261bce2ea14334b9b528794e6ee352,
     type: 3}
   notificationObject: {fileID: 0}
+  objectTrackingLogger: {fileID: 0}
   startArea: {fileID: 0}
   startTime: 0
   uiComponentInteractionTime: 0
@@ -8255,6 +8260,7 @@ MonoBehaviour:
   trackName: {fileID: 1178283388}
   pauseObject: {fileID: 638593506}
   masterControllerObject: {fileID: 435653132}
+  LVObject: {fileID: 1951441355}
 --- !u!43 &1773493834
 Mesh:
   m_ObjectHideFlags: 0
@@ -9764,13 +9770,14 @@ GameObject:
   - component: {fileID: 2016665037}
   - component: {fileID: 2016665036}
   - component: {fileID: 2016665038}
+  - component: {fileID: 2016665039}
   m_Layer: 0
   m_Name: ObjectTrackingLogger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2016665036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9821,6 +9828,26 @@ MonoBehaviour:
   RightHandController: {fileID: 0}
   targetSpawnController: {fileID: 35585149}
   gazeMarker: {fileID: 1030054507}
+  startWriting: 0
+--- !u!114 &2016665039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2016665035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abb92d5ae57bfe34d86593e0481c628e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FolderName: D:\IVE_Spring19\Kshitij Sinha\Driving-Task-Simulator-in-VR\Data\PositionLogs\TestData
+  FileName: ' - VR'
+  taskNumber: 0
+  startTime: 0
+  uiComponentInteractionTime: 0
+  uiComponentExitTime: 0
+  hornTime: 0
   startWriting: 0
 --- !u!1 &2019791873
 GameObject:

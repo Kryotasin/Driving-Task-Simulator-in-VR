@@ -25,7 +25,10 @@ public class HornController : MonoBehaviour
     private AudioSource hornSource;
 
 
-    public GameObject LV;
+    public GameObject LV, masterControllerObject;
+
+    private MasterGameControllerScript masterGameControllerScript;
+
 
     private LVController lvController;
     public ColliderButtonEventData.InputButton activeButton
@@ -56,6 +59,8 @@ public class HornController : MonoBehaviour
         buttonOriginPosition = buttonObject.position;
         hornSource = hornObject.GetComponent<AudioSource>();
         lvController = LV.GetComponent<LVController>();
+        masterGameControllerScript = masterControllerObject.GetComponent<MasterGameControllerScript>();
+
     }
 #if UNITY_EDITOR
     protected virtual void OnValidate()
@@ -94,6 +99,9 @@ public class HornController : MonoBehaviour
             hornSource.Play();
             Debug.Log("Press");
             lvController.activateLV = false;
+            masterGameControllerScript.hornTime = Time.time;
+
+            masterGameControllerScript.endTask();
         }
     }
 

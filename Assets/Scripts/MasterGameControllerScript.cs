@@ -5,7 +5,7 @@ using TMPro;
 
 public class MasterGameControllerScript : MonoBehaviour
 {
-    public GameObject objectiveObject,notificationObject;
+    public GameObject objectiveObject,notificationObject, objectTrackingLogger;
     public GameObject startArea;
 
     private NotificationController notificationController;
@@ -25,12 +25,15 @@ public class MasterGameControllerScript : MonoBehaviour
 
     private int taskIndex;
 
+    private HandTracker handTracker;
+
     void Start()
     {
         // Get all variables
         notificationController = notificationObject.GetComponent<NotificationController>();
         startAreaController = startArea.GetComponent<StartAreaController>();
         objectiveController = objectiveObject.GetComponent<ObjectiveController>();
+        handTracker = objectTrackingLogger.GetComponent<HandTracker>();
 
         taskIndex = 0;
         
@@ -117,9 +120,29 @@ int test = 4;
         }
     }
 
-    void endTask(){
+    public void endTask(){
         startAreaController.isTaskActive = false;
         taskOnGoing = false;
+
+        handTracker.taskNumber = 4;
+
+        handTracker.startTime = startTime;
+
+        handTracker.uiComponentInteractionTime = uiComponentInteractionTime;
+
+        handTracker.uiComponentExitTime = uiComponentExitTime;
+
+        handTracker.hornTime = hornTime;
+
+
+        //handTracker.WriteFile();
+
+        Debug.Log(startTime + " " +  uiComponentInteractionTime + " " +  uiComponentExitTime + " " + hornTime);
+
+        startTime = 0;
+        uiComponentInteractionTime = 0;
+        uiComponentExitTime = 0;
+        hornTime = 0;
     }
 
    
