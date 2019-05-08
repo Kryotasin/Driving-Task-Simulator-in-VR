@@ -6,10 +6,11 @@ using TMPro;
 public class NotificationController : MonoBehaviour
 {
 
+    public GameObject notificationTextObject;
     public TextMeshPro notificationText;
     void Start()
     {
-        notificationText = GetComponent<TextMeshPro>();
+        notificationText = notificationTextObject.GetComponent<TextMeshPro>();
     }
 
     public void SetText(string inputText){

@@ -5,7 +5,7 @@ using TMPro;
 
 public class MasterGameControllerScript : MonoBehaviour
 {
-    public GameObject instantiatedObject, objectiveObject,notificationObject, spawnObjective, spawnNotification;
+    public GameObject objectiveObject,notificationObject;
     public GameObject startArea;
 
     private NotificationController notificationController;
@@ -29,6 +29,7 @@ public class MasterGameControllerScript : MonoBehaviour
         // Get all variables
         notificationController = notificationObject.GetComponent<NotificationController>();
         startAreaController = startArea.GetComponent<StartAreaController>();
+        objectiveController = objectiveObject.GetComponent<ObjectiveController>();
 
         taskIndex = 0;
         
@@ -53,6 +54,7 @@ public class MasterGameControllerScript : MonoBehaviour
         foreach(int k in taskList){
             Debug.Log(k);
         }
+
 
         InvokeRepeating("periodicInvoker", 3.0f, 15.0f);
     }
@@ -79,33 +81,28 @@ int test = 4;
                 */
 
                 case 1:
-                    instantiatedObject = Instantiate(objectiveObject, spawnObjective.transform.position, spawnObjective.transform.rotation);  
-                    objectiveController = instantiatedObject.GetComponent<ObjectiveController>();
                     objectiveController.objectiveText.text = "Play/Pause the music.";
+                    objectiveObject.SetActive(true);
                     break;
 
                 case 2:
-                    instantiatedObject = Instantiate(objectiveObject, spawnObjective.transform.position, spawnObjective.transform.rotation);
-                    objectiveController = instantiatedObject.GetComponent<ObjectiveController>();
                     objectiveController.objectiveText.text = "Go to Previous Track.";
+                    objectiveObject.SetActive(true);
                     break;
 
                 case 3:
-                    instantiatedObject = Instantiate(objectiveObject, spawnObjective.transform.position, spawnObjective.transform.rotation);
-                    objectiveController = instantiatedObject.GetComponent<ObjectiveController>();
                     objectiveController.objectiveText.text = "Go to Next Track.";
+                    objectiveObject.SetActive(true);
                     break;
 
                 case 4:
-                    instantiatedObject = (GameObject) Instantiate(notificationObject, spawnNotification.transform.position, spawnNotification.transform.rotation);
-                    notificationController = instantiatedObject.GetComponent<NotificationController>();
                     notificationController.SetText("Press 'Yes' if you are awake.");
+                    notificationObject.SetActive(true);
                     break;
 
                 case 5:
-                    instantiatedObject = Instantiate(notificationObject, spawnNotification.transform.position, spawnNotification.transform.rotation);
-                    notificationController = instantiatedObject.GetComponent<NotificationController>();
                     notificationController.SetText("Press 'No' if you are not sleeping.");
+                    notificationObject.SetActive(true);
                     break;
 
             }
@@ -114,6 +111,9 @@ int test = 4;
     }
 
     void Update(){
+        if(taskOnGoing){
+            Debug.Log("Running");
+        }
     }
 
     void endTask(){

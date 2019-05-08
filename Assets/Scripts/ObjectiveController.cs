@@ -5,10 +5,11 @@ using TMPro;
 
 public class ObjectiveController : MonoBehaviour
 {
+    public GameObject objectiveObject;
     public TextMeshPro objectiveText;
     void Start()
     {
-        objectiveText = GetComponent<TextMeshPro>();
+        objectiveText = objectiveObject.GetComponent<TextMeshPro>();
 
     }
 

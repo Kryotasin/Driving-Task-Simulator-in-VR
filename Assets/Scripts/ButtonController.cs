@@ -21,7 +21,7 @@ public class ButtonController : MonoBehaviour
 
     private HashSet<ColliderButtonEventData> pressingEvents = new HashSet<ColliderButtonEventData>();
 
-    public GameObject instantiatedObjectChild, masterController;
+    public GameObject masterControllerObject;
 
     private MasterGameControllerScript masterGameControllerScript;
     public ColliderButtonEventData.InputButton activeButton
@@ -51,7 +51,7 @@ public class ButtonController : MonoBehaviour
 
         buttonOriginPosition = buttonObject.position;
 
-        masterGameControllerScript = masterController.GetComponent<MasterGameControllerScript>();
+        masterGameControllerScript = masterControllerObject.GetComponent<MasterGameControllerScript>();
     }
 #if UNITY_EDITOR
     protected virtual void OnValidate()
@@ -87,7 +87,7 @@ public class ButtonController : MonoBehaviour
         if (eventData.button == m_activeButton && pressingEvents.Add(eventData) && pressingEvents.Count == 1)
         {
             buttonObject.position = buttonOriginPosition + buttonDownDisplacement;
-            
+
         }
     }
 
