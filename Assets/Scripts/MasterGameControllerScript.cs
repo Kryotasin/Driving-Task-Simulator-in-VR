@@ -16,6 +16,7 @@ public class MasterGameControllerScript : MonoBehaviour
 
     public float startTime = 0;
     public float uiComponentInteractionTime = 0;
+    public float uiComponentExitTime = 0;
     public float hornTime = 0;
     
     public List<int> taskList = new List<int>();
@@ -69,7 +70,7 @@ public class MasterGameControllerScript : MonoBehaviour
         startAreaController.isTaskActive = true;
         taskOnGoing = true;
         Debug.Log("Running new task" + taskOnGoing);
-int test = 1;
+int test = 4;
             // switch(taskList[taskIndex]){
                 switch(test){
                 /*

@@ -21,7 +21,7 @@ public class ButtonController : MonoBehaviour
 
     private HashSet<ColliderButtonEventData> pressingEvents = new HashSet<ColliderButtonEventData>();
 
-    public GameObject masterControllerObject, parentObject;
+    public GameObject masterControllerObject, parentObject, LVObject;
 
     private MasterGameControllerScript masterGameControllerScript;
     public ColliderButtonEventData.InputButton activeButton
@@ -100,6 +100,8 @@ public class ButtonController : MonoBehaviour
         if (pressingEvents.Remove(eventData) && pressingEvents.Count == 0)
         {
             buttonObject.position = buttonOriginPosition;
+            masterGameControllerScript.uiComponentExitTime = Time.time;
+
         }
     }
 }

@@ -75,10 +75,7 @@ public class LVController : MonoBehaviour
         }
 
         void boolChanger(){
-            // Debug.Log("Calling changed bool");
-            if(!activateLV && activateLV){
                 activateLV = true;
-            }
         }
  }
 
